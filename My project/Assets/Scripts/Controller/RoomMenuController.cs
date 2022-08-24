@@ -14,12 +14,13 @@ public class RoomMenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+       
         if (Laucher.instance.IsPlayerEnterRoomOrLeave)
         {
             foreach(Transform trans in playerListContent)
@@ -34,17 +35,24 @@ public class RoomMenuController : MonoBehaviour
             Laucher.instance.IsPlayerEnterRoomOrLeave = false;
         }
 
-        if (Laucher.instance.IsCreatedRoom)  // service [ Laucher ]
+        if (Laucher.instance.IsCreatedRoom || Laucher.instance.IsJoinedRoom)
         {
             roomName.text = Laucher.instance.GetCurrentRoomName();  // service [ Laucher ]
         }
-
-        if(Laucher.instance.IsCreatedRoom == false && Laucher.instance.IsJoinedRoom == false)
+           
+        if (Laucher.instance.IsCreatedRoom == false && Laucher.instance.IsJoinedRoom == false)
         {
             this.gameObject.SetActive(false); // view [ RoomMenu ] 
         }
 
-        if (Laucher.instance.isMasterClient()) StartButton.SetActive(true);
+        if (Laucher.instance.isMasterClient())
+        {
+            StartButton.SetActive(true);
+        }
+        else
+        {
+            StartButton.SetActive(false);
+        }
     }
 
     public void LeaveRoom()

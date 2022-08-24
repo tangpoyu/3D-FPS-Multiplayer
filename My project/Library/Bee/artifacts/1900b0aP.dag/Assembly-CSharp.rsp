@@ -339,7 +339,7 @@
 "Assets/Scripts/Controller/LoadingMenuController.cs"
 "Assets/Scripts/Controller/RoomMenuController.cs"
 "Assets/Scripts/Controller/TitleMenuController.cs"
-"Assets/Scripts/Laucher.cs"
+"Assets/Scripts/Service/Laucher.cs"
 "Assets/Scripts/View/PlayerListItem.cs"
 "Assets/Scripts/View/RoomListItem.cs"
 -langversion:9.0
