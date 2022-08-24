@@ -24,7 +24,7 @@ public class LoadingMenuController : MonoBehaviour
         {
             TitleMenu.SetActive(true);
         }
-        if (Laucher.instance.IsJoinedRoom)
+        if (Laucher.instance.IsJoinedRoom || Laucher.instance.IsCreatedRoom)
         {
             RoomMenu.SetActive(true);
         }

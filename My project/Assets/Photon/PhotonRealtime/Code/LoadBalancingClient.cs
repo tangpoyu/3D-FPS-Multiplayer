@@ -4345,7 +4345,7 @@ namespace Photon.Realtime
             foreach (ILobbyCallbacks target in this)
             {
                 target.OnJoinedLobby();
-            }
+                }
         }
 
         public void OnLeftLobby()
@@ -4360,6 +4360,7 @@ namespace Photon.Realtime
 
         public void OnRoomListUpdate(List<RoomInfo> roomList)
         {
+            
             this.client.UpdateCallbackTargets();
 
             foreach (ILobbyCallbacks target in this)
