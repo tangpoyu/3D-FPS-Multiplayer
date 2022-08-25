@@ -236,17 +236,6 @@
       "DebugActionIndex": 6
     },
     {
-      "Annotation": "CopyFiles Build/Windows/My project_Data/level1.resS",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "Library/PlayerDataCache/Win64/Data/level1.resS"
-      ],
-      "Outputs": [
-        "Build/Windows/My project_Data/level1.resS"
-      ],
-      "DebugActionIndex": 7
-    },
-    {
       "Annotation": "CopyFiles Build/Windows/My project_Data/resources.assets",
       "ActionType": "CopyFiles",
       "Inputs": [
@@ -255,7 +244,7 @@
       "Outputs": [
         "Build/Windows/My project_Data/resources.assets"
       ],
-      "DebugActionIndex": 8
+      "DebugActionIndex": 7
     },
     {
       "Annotation": "CopyFiles Build/Windows/My project_Data/resources.assets.resS",
@@ -266,7 +255,7 @@
       "Outputs": [
         "Build/Windows/My project_Data/resources.assets.resS"
       ],
-      "DebugActionIndex": 9
+      "DebugActionIndex": 8
     },
     {
       "Annotation": "CopyFiles Build/Windows/My project_Data/RuntimeInitializeOnLoads.json",
@@ -277,7 +266,7 @@
       "Outputs": [
         "Build/Windows/My project_Data/RuntimeInitializeOnLoads.json"
       ],
-      "DebugActionIndex": 10
+      "DebugActionIndex": 9
     },
     {
       "Annotation": "CopyFiles Build/Windows/My project_Data/ScriptingAssemblies.json",
@@ -288,7 +277,7 @@
       "Outputs": [
         "Build/Windows/My project_Data/ScriptingAssemblies.json"
       ],
-      "DebugActionIndex": 11
+      "DebugActionIndex": 10
     },
     {
       "Annotation": "CopyFiles Build/Windows/My project_Data/sharedassets0.assets",
@@ -299,7 +288,7 @@
       "Outputs": [
         "Build/Windows/My project_Data/sharedassets0.assets"
       ],
-      "DebugActionIndex": 12
+      "DebugActionIndex": 11
     },
     {
       "Annotation": "CopyFiles Build/Windows/My project_Data/sharedassets0.assets.resS",
@@ -310,7 +299,7 @@
       "Outputs": [
         "Build/Windows/My project_Data/sharedassets0.assets.resS"
       ],
-      "DebugActionIndex": 13
+      "DebugActionIndex": 12
     },
     {
       "Annotation": "CopyFiles Build/Windows/My project_Data/sharedassets1.assets",
@@ -320,6 +309,17 @@
       ],
       "Outputs": [
         "Build/Windows/My project_Data/sharedassets1.assets"
+      ],
+      "DebugActionIndex": 13
+    },
+    {
+      "Annotation": "CopyFiles Build/Windows/My project_Data/sharedassets1.assets.resS",
+      "ActionType": "CopyFiles",
+      "Inputs": [
+        "Library/PlayerDataCache/Win64/Data/sharedassets1.assets.resS"
+      ],
+      "Outputs": [
+        "Build/Windows/My project_Data/sharedassets1.assets.resS"
       ],
       "DebugActionIndex": 14
     },
