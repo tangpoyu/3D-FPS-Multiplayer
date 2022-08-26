@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 // View
 public class RoomManager : MonoBehaviourPunCallbacks
 {
-
+    private PhotonView pv;
     public override void OnEnable()
     {
         base.OnEnable();

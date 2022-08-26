@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
+
 // View
 public class PlayerManager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         pv = GetComponent<PhotonView>();
+        print("");
     }
 
     // Start is called before the first frame update
@@ -21,6 +23,10 @@ public class PlayerManager : MonoBehaviour
         if (pv.IsMine)
         {
             CreateController();
+        }
+        else
+        {
+            print("");
         }
     }
 
