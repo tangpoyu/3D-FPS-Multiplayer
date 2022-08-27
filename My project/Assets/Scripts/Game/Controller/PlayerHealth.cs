@@ -26,7 +26,10 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.y < -10)
+        {
+            Die();
+        }
     }
 
     public void TakeDamage(float damage)

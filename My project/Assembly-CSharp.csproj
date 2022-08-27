@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\UI\Controller\TitleMenuController.cs" />
     <Compile Include="Assets\Scripts\Game\View\PlayerView.cs" />
     <Compile Include="Assets\Scripts\Game\ItemInfo.cs" />
+    <Compile Include="Assets\Scripts\Game\CameraController.cs" />
     <Compile Include="Assets\Scripts\Game\Controller\PlayerMoveController.cs" />
     <Compile Include="Assets\Scripts\Game\Gun.cs" />
     <Compile Include="Assets\Scripts\Game\Controller\PlayerHealth.cs" />
@@ -84,7 +85,8 @@
     <Compile Include="Assets\Scripts\UI\Controller\CreateRoomMenuController.cs" />
     <Compile Include="Assets\Scripts\Game\Item.cs" />
     <Compile Include="Assets\Scripts\UI\Service\Laucher.cs" />
-    <Compile Include="Assets\Scripts\Game\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Game\Spawnpoint.cs" />
+    <Compile Include="Assets\Scripts\Game\SpawnpointManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
