@@ -15,6 +15,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         pv = GetComponent<PhotonView>();
         playerManage = PhotonView.Find((int)pv.InstantiationData[0]).GetComponent<PlayerManager>();
+        currentHealth = health;
     }
 
     // Start is called before the first frame update
