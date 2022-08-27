@@ -6,4 +6,6 @@ public class ItemInfo : ScriptableObject
 {
     [SerializeField]
     private string itemName;
+
+    public string ItemName { get => itemName; set => itemName = value; }
 }

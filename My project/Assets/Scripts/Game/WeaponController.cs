@@ -1,5 +1,6 @@
 using Photon.Pun;
 using Photon.Realtime;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +27,20 @@ public class WeaponController : MonoBehaviourPunCallbacks
     private void Update()
     {
         if (!pv.IsMine) return;
+        SwitchWeapon();
+        Attack();
+    }
+
+    private void Attack()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            items[itemIndex].use();
+        }
+    }
+
+    public void SwitchWeapon()
+    {
         for (int i = 0; i < items.Length; i++)
         {
             if (Input.GetKeyDown((i + 1).ToString()))

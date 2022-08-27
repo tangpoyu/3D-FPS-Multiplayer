@@ -34,7 +34,7 @@ public class PlayerMoveController : MonoBehaviour
             rb.useGravity = false;
             rb.constraints = RigidbodyConstraints.FreezePosition;
             Destroy(this);
-            Destroy(GetComponentInChildren<Camera>().gameObject);
+            Destroy(cameraHolder);
             // Destroy(rb);
         }
         else

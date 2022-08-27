@@ -10,6 +10,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     private PhotonView pv;
+    private GameObject player;
 
     private void Awake()
     {
@@ -38,6 +39,14 @@ public class PlayerManager : MonoBehaviour
 
     private void CreateController()
     {
-        PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Player"), Vector3.zero, Quaternion.identity);
+       
+        player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerHolder"), new Vector3(0,0, UnityEngine.Random.Range(-4,2)), Quaternion.identity, 0, new object[] { pv.ViewID });
+    }
+
+    internal void Die()
+    {
+        player.transform.Find("Camera").gameObject.SetActive(true);
+        PhotonNetwork.Destroy(player.transform.Find("Player").GetComponent<PhotonView>());
+        // CreateController();
     }
 }

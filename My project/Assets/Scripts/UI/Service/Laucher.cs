@@ -29,6 +29,7 @@ public class Laucher : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
+        PhotonNetwork.NetworkingClient.LoadBalancingPeer.DisconnectTimeout = 65535;
         if (instance == null)
         {
             instance = this;

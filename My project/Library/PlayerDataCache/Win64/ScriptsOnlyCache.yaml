@@ -1,20 +1,22 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - CameraController
     - CreateRoomMenuController
     - ErrorMenuController
     - FindRoomMenuController
     - GunInfo
-    - Item
     - Laucher
     - LoadingMenuController
     - PlayerGoundCheck
+    - PlayerHealth
     - PlayerListItem
     - PlayerManager
     - PlayerMoveController
     - RoomListItem
     - RoomManager
     - RoomMenuController
+    - SingleShotGun
     - TitleMenuController
     - WeaponController
     PhotonUnityNetworking.Demos.dll:
@@ -165,7 +167,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3214}
     - Class: 114
-      Script: {instanceID: 6794}
+      Script: {instanceID: 6800}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -282,33 +284,37 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6348}
     - Class: 114
-      Script: {instanceID: 6702}
+      Script: {instanceID: 6660}
     - Class: 114
-      Script: {instanceID: 6716}
+      Script: {instanceID: 6708}
     - Class: 114
-      Script: {instanceID: 6810}
+      Script: {instanceID: 6722}
     - Class: 114
-      Script: {instanceID: 7172}
+      Script: {instanceID: 6816}
     - Class: 114
-      Script: {instanceID: 7202}
+      Script: {instanceID: 7178}
     - Class: 114
-      Script: {instanceID: 7358}
+      Script: {instanceID: 7180}
     - Class: 114
-      Script: {instanceID: 7494}
+      Script: {instanceID: 7210}
     - Class: 114
-      Script: {instanceID: 7906}
+      Script: {instanceID: 7366}
     - Class: 114
-      Script: {instanceID: 8110}
+      Script: {instanceID: 7502}
     - Class: 114
-      Script: {instanceID: 8296}
+      Script: {instanceID: 7914}
     - Class: 114
-      Script: {instanceID: 8308}
+      Script: {instanceID: 8118}
     - Class: 114
-      Script: {instanceID: 8378}
+      Script: {instanceID: 8304}
     - Class: 114
-      Script: {instanceID: 8430}
+      Script: {instanceID: 8386}
     - Class: 114
-      Script: {instanceID: 8764}
+      Script: {instanceID: 8438}
+    - Class: 114
+      Script: {instanceID: 8772}
+    - Class: 114
+      Script: {instanceID: 66436}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1506,10 +1512,22 @@ ScriptsOnlyBuild:
     className: SupportLogger
   - hash:
       serializedVersion: 2
+      Hash: 07eb88ee94ce3ac5d48345fb3d2c8d66
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Gun
+  - hash:
+      serializedVersion: 2
       Hash: 4c0ebd9e77f5bc0558d19d8313e54bb9
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.SlotRacer.Utils
     className: SplinePosition
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerHealth
   - hash:
       serializedVersion: 2
       Hash: e09e8bebc0fcd32bb8af1287a6b44816
@@ -1644,6 +1662,12 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: 1fbb69543d03c9bba24a10e8db1ad721
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SingleShotGun
+  - hash:
+      serializedVersion: 2
       Hash: cba6cca6bb3290c4c00d709cf63843db
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
@@ -1728,7 +1752,7 @@ ScriptsOnlyBuild:
     className: UnityOnScrollRectValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 1a286079cf1647bc90669bb8cf035be6
+      Hash: 97ef6bf4e3bc4048120649a444e03eb5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GunInfo
@@ -1944,12 +1968,6 @@ ScriptsOnlyBuild:
     className: PhotonTransformView
   - hash:
       serializedVersion: 2
-      Hash: 07eb88ee94ce3ac5d48345fb3d2c8d66
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Item
-  - hash:
-      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
@@ -2062,6 +2080,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 9b1f43e767a805ca5b45d5c5609944f8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraController
   platform: 19
   scenePathNames:
   - Assets/Scenes/UI.unity
