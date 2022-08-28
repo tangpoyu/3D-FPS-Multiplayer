@@ -47,6 +47,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         {
             Die();
         }
+        UIController.instance.UpdataHealth(currentHealth > 0 ? currentHealth : 0);
     }
 
     private void Die()

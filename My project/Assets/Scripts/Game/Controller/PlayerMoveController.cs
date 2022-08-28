@@ -6,7 +6,7 @@ public class PlayerMoveController : MonoBehaviour
 {
  
     [SerializeField]
-    private GameObject cameraHolder;
+    private GameObject cameraHolder, ui;
     private Rigidbody rb;
     private PhotonView pv;
     [SerializeField]
@@ -35,6 +35,7 @@ public class PlayerMoveController : MonoBehaviour
             rb.constraints = RigidbodyConstraints.FreezePosition;
             Destroy(this);
             Destroy(cameraHolder);
+            Destroy(ui);
             // Destroy(rb);
         }
         else
