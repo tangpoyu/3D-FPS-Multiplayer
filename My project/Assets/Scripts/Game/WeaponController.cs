@@ -93,7 +93,7 @@ public class WeaponController : MonoBehaviourPunCallbacks
 
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
     {
-        if (!pv.IsMine && targetPlayer == pv.Owner)
+        if (!pv.IsMine && targetPlayer == pv.Owner &&¡@changedProps.ContainsKey("itemIndex"))
         {
             EquipItem((int)changedProps["itemIndex"]);
         }

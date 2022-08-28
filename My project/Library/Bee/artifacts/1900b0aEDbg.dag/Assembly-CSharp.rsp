@@ -389,6 +389,8 @@
 "Assets/Scripts/Game/PlayerGoundCheck.cs"
 "Assets/Scripts/Game/PlayerManager.cs"
 "Assets/Scripts/Game/RoomManager.cs"
+"Assets/Scripts/Game/Scoreboard.cs"
+"Assets/Scripts/Game/ScoreboardItem.cs"
 "Assets/Scripts/Game/SingleShotGun.cs"
 "Assets/Scripts/Game/Spawnpoint.cs"
 "Assets/Scripts/Game/SpawnpointManager.cs"

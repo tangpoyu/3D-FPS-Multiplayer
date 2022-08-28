@@ -35,17 +35,17 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
-        pv.RPC("RPC_TakeDamage", RpcTarget.All, damage);
+        pv.RPC(nameof(RPC_TakeDamage), pv.Owner, damage);
     }
 
     [PunRPC]
-    public void RPC_TakeDamage(float damage)
+    public void RPC_TakeDamage(float damage, PhotonMessageInfo info)
     {
-        if (!pv.IsMine) return;
         currentHealth -= damage;
         if(currentHealth <= 0)
         {
             Die();
+            PlayerManager.Find(info.Sender).GetKill();
         }
         UIController.instance.UpdataHealth(currentHealth > 0 ? currentHealth : 0);
     }

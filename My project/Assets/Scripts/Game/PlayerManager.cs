@@ -1,9 +1,12 @@
 using Photon.Pun;
+using Photon.Realtime;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 
 // View
@@ -11,6 +14,8 @@ public class PlayerManager : MonoBehaviour
 {
     private PhotonView pv;
     private GameObject player;
+    private int kill;
+    private int death;
 
     private void Awake()
     {
@@ -47,6 +52,35 @@ public class PlayerManager : MonoBehaviour
     {
         player.transform.Find("Camera").gameObject.SetActive(true);
         PhotonNetwork.Destroy(player.transform.Find("Player").GetComponent<PhotonView>());
-        // CreateController();
+        death++;
+        Hashtable hash = new Hashtable();
+        hash.Add("death", death);
+        PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+        Invoke(nameof(Respawn), 10);
+    }
+
+    public void Respawn()
+    {
+        Destroy(player);
+        CreateController();
+    }
+
+    public void GetKill()
+    {
+        pv.RPC(nameof(RPC_GetKill), pv.Owner);
+    }
+
+    [PunRPC]
+    void RPC_GetKill()
+    {
+        kill++;
+        Hashtable hash = new Hashtable();
+        hash.Add("kill", kill);
+        PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+    }
+
+    public static PlayerManager Find(Player player)
+    {
+        return FindObjectsOfType<PlayerManager>().SingleOrDefault(x => x.pv.Owner == player);
     }
 }
