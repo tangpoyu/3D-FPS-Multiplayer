@@ -20,12 +20,16 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         base.OnDisable();
     }
+    private void Awake()
+    {
+        print("1");
+    }
 
     private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
         if(arg0.name == "Game")
         {
-            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerManager"), Vector3.zero, Quaternion.identity);
+            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerManager"), Vector3.zero, Quaternion.identity).name = "myPlayerManager";
         }
     }
 

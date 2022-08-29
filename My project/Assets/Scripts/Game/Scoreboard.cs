@@ -12,6 +12,11 @@ public class Scoreboard : MonoBehaviourPunCallbacks
     [SerializeField] CanvasGroup canvasGroup;
     private Dictionary<Player, ScoreboardItem> scoreboardItems;
 
+    private void Awake()
+    {
+        print("1");
+    }
+
     private void Start()
     {
         scoreboardItems = new Dictionary<Player, ScoreboardItem>();

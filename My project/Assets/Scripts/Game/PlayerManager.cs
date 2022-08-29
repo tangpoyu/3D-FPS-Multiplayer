@@ -44,8 +44,8 @@ public class PlayerManager : MonoBehaviour
 
     private void CreateController()
     {
-       
         player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerHolder"), new Vector3(0,0, UnityEngine.Random.Range(-4,2)), Quaternion.identity, 0, new object[] { pv.ViewID });
+        player.name = "myPlayer";
     }
 
     internal void Die()

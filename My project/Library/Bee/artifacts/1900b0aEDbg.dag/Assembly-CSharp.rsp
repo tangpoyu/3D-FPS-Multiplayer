@@ -376,6 +376,7 @@
 "Assets/Scripts/Game/Billboard.cs"
 "Assets/Scripts/Game/CameraController.cs"
 "Assets/Scripts/Game/CameraTest.cs"
+"Assets/Scripts/Game/Controller/DecoratorUI.cs"
 "Assets/Scripts/Game/Controller/PlayerHealth.cs"
 "Assets/Scripts/Game/Controller/PlayerMoveController.cs"
 "Assets/Scripts/Game/Controller/UIController.cs"

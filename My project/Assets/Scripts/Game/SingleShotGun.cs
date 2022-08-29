@@ -1,27 +1,15 @@
 using Photon.Pun;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SingleShotGun : Gun
 {
-    [SerializeField] Camera cam;
-    PhotonView photonView;
-
-    private void Awake()
-    {
-        photonView = GetComponent<PhotonView>();
-    }
-
     public override void use()
     {
         Shoot();
     }
 
     private void Shoot()
-    {
-
+    { 
         // LEARN
         Ray ray = cam.ViewportPointToRay(new Vector3(0.5f, 0.5f));
         ray.origin = cam.transform.position;

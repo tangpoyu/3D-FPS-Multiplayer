@@ -12,10 +12,14 @@ public class WeaponController : MonoBehaviourPunCallbacks
     [SerializeField]
     Item[] items;
     private int itemIndex, previousItemIndex = -1;
+    private bool canShoot;
+
+    public bool CanShoot { get => canShoot; set => canShoot = value; }
 
     private void Awake()
     {
         pv = GetComponent<PhotonView>();
+        CanShoot = true;
     }
 
     private void Start()
@@ -28,7 +32,7 @@ public class WeaponController : MonoBehaviourPunCallbacks
     {
         if (!pv.IsMine) return;
         SwitchWeapon();
-        Attack();
+        if(CanShoot) Attack();
     }
 
     private void Attack()

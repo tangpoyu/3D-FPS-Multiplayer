@@ -6,7 +6,7 @@ public class PlayerMoveController : MonoBehaviour
 {
  
     [SerializeField]
-    private GameObject cameraHolder, ui;
+    private GameObject cameraHolder, ui, decoratorUI;
     private Rigidbody rb;
     private PhotonView pv;
     [SerializeField]
@@ -18,12 +18,13 @@ public class PlayerMoveController : MonoBehaviour
 
 
     public bool Grounded { get => grounded; set => grounded = value; }
+    public bool Mouselocked { get => mouselocked; set => mouselocked = value; }
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         pv = GetComponent<PhotonView>();
-        mouselocked = true;
+        Mouselocked = true;
     }
 
     // Start is called before the first frame update
@@ -36,6 +37,7 @@ public class PlayerMoveController : MonoBehaviour
             Destroy(this);
             Destroy(cameraHolder);
             Destroy(ui);
+            Destroy(decoratorUI);
             // Destroy(rb);
         }
         else
@@ -85,10 +87,10 @@ public class PlayerMoveController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            mouselocked = !mouselocked;
+            Mouselocked = !Mouselocked;
         }
 
-        Cursor.lockState = mouselocked ? CursorLockMode.Locked : CursorLockMode.None;
-        Cursor.visible = mouselocked ? false : true;
+        Cursor.lockState = Mouselocked ? CursorLockMode.Locked : CursorLockMode.None;
+        Cursor.visible = Mouselocked ? false : true;
     }
 }

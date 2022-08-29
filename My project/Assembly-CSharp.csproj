@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\Game\RoomManager.cs" />
     <Compile Include="Assets\Scripts\Game\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Game\SingleShotGun.cs" />
+    <Compile Include="Assets\Scripts\Game\Controller\DecoratorUI.cs" />
     <Compile Include="Assets\Scripts\Game\WeaponController.cs" />
     <Compile Include="Assets\Scripts\Game\GunInfo.cs" />
     <Compile Include="Assets\Scripts\Game\Controller\UIController.cs" />

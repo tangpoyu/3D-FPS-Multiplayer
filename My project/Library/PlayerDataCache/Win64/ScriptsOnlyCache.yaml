@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - Billboard
     - CameraController
     - CreateRoomMenuController
+    - DecoratorUI
     - ErrorMenuController
     - FindRoomMenuController
     - GunInfo
@@ -177,6 +178,24 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: TitleMenuController
     methodName: findRoom
+  - assembly: Assembly-CSharp
+    fullTypeName: DecoratorUI
+    methodName: changebulletImapctPrefab_yellow
+  - assembly: Assembly-CSharp
+    fullTypeName: DecoratorUI
+    methodName: changebulletImapctPrefab_pink
+  - assembly: Assembly-CSharp
+    fullTypeName: DecoratorUI
+    methodName: changebulletImapctPrefab_green
+  - assembly: Assembly-CSharp
+    fullTypeName: DecoratorUI
+    methodName: changebulletImapctPrefab_orange
+  - assembly: Assembly-CSharp
+    fullTypeName: DecoratorUI
+    methodName: changebulletImapctPrefab_bule
+  - assembly: Assembly-CSharp
+    fullTypeName: DecoratorUI
+    methodName: changebulletImapctPrefab_purple
   sceneClasses:
     Assets/Scenes/Game.unity:
     - Class: 1
@@ -244,7 +263,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 7400}
     - Class: 114
-      Script: {instanceID: 8136}
+      Script: {instanceID: 8138}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -395,25 +414,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 7402}
     - Class: 114
-      Script: {instanceID: 7432}
+      Script: {instanceID: 7408}
     - Class: 114
-      Script: {instanceID: 7590}
+      Script: {instanceID: 7434}
     - Class: 114
-      Script: {instanceID: 7730}
+      Script: {instanceID: 7592}
     - Class: 114
-      Script: {instanceID: 7942}
+      Script: {instanceID: 7732}
     - Class: 114
-      Script: {instanceID: 8158}
+      Script: {instanceID: 7944}
     - Class: 114
-      Script: {instanceID: 8366}
+      Script: {instanceID: 8160}
     - Class: 114
-      Script: {instanceID: 8562}
+      Script: {instanceID: 8368}
     - Class: 114
-      Script: {instanceID: 8644}
+      Script: {instanceID: 8564}
     - Class: 114
-      Script: {instanceID: 8698}
+      Script: {instanceID: 8646}
     - Class: 114
-      Script: {instanceID: 9036}
+      Script: {instanceID: 8700}
+    - Class: 114
+      Script: {instanceID: 9038}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1701,7 +1722,7 @@ ScriptsOnlyBuild:
     className: AspectRatioFitter
   - hash:
       serializedVersion: 2
-      Hash: 5e742783f476f4073e006c93a66d40c7
+      Hash: 358ccfcdab26a7e597c83c31ffa4ec51
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMoveController
@@ -1735,12 +1756,6 @@ ScriptsOnlyBuild:
     assemblyName: PhotonRealtime.dll
     namespaceName: Photon.Realtime
     className: SupportLogger
-  - hash:
-      serializedVersion: 2
-      Hash: 94163319c8358cecd430819d1cbaefbd
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Gun
   - hash:
       serializedVersion: 2
       Hash: 4c0ebd9e77f5bc0558d19d8313e54bb9
@@ -1887,10 +1902,16 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 7e45f2db626cfb2aa78765bf7b9a4956
+      Hash: aca0491dfa3c927718aab087ee6af198
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SingleShotGun
+  - hash:
+      serializedVersion: 2
+      Hash: 62f5c6af6791b67569d893d7502375c8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DecoratorUI
   - hash:
       serializedVersion: 2
       Hash: cba6cca6bb3290c4c00d709cf63843db
