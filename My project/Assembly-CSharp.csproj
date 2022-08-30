@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Game\Model\PlayerModel.cs" />
     <Compile Include="Assets\Scripts\UI\Controller\FindRoomMenuController.cs" />
+    <Compile Include="Assets\bulletImpactButton.cs" />
     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\SocketWebTcp.cs" />
     <Compile Include="Assets\Scripts\UI\View\RoomListItem.cs" />
     <Compile Include="Assets\Scripts\Game\PlayerGoundCheck.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Assets\Scripts\Game\View\WeaponView.cs" />
     <Compile Include="Assets\Scripts\UI\View\PlayerListItem.cs" />
     <Compile Include="Assets\Scripts\Game\SpawnpointManager.cs" />
+    <Compile Include="Assets\PrefabManager.cs" />
     <Compile Include="Assets\Scripts\UI\Service\PlayerName.cs" />
     <Compile Include="Assets\Scripts\UI\Controller\LoadingMenuController.cs" />
     <Compile Include="Assets\Scripts\UI\Controller\ErrorMenuController.cs" />

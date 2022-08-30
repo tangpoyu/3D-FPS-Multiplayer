@@ -16,7 +16,7 @@ public class SingleShotGun : Gun
         if(Physics.Raycast(ray, out RaycastHit hit))
         {
             hit.collider.gameObject.GetComponent<IDamageable>()?.TakeDamage(((GunInfo)itemInfo).Damage);
-            photonView.RPC("RPC_Shoot", RpcTarget.All, hit.point, hit.normal);
+            myPhotonView.RPC("RPC_Shoot", RpcTarget.All, hit.point, hit.normal);
         }
     }
 

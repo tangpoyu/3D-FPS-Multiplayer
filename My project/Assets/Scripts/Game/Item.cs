@@ -3,20 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Item : MonoBehaviour
+public abstract class Item : MonoBehaviourPunCallbacks
 {
     [SerializeField]
     protected ItemInfo itemInfo;
     [SerializeField]
     private GameObject itemGameObject;
-    protected PhotonView photonView;
+    [SerializeField]
+    private PrefabManager materialManager;
+    protected PhotonView myPhotonView;
 
     public GameObject ItemGameObject { get => itemGameObject; set => itemGameObject = value; }
 
     protected void Awake()
     {
-        photonView = GetComponent<PhotonView>();
+       myPhotonView = GetComponent<PhotonView>();
+       materialManager = FindObjectOfType<PrefabManager>();
     }
 
     public abstract void use();
 }
+

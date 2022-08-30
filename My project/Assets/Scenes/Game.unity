@@ -967,6 +967,7 @@ GameObject:
   - component: {fileID: 1889321359}
   - component: {fileID: 1889321358}
   - component: {fileID: 1889321357}
+  - component: {fileID: 1889321360}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -1023,6 +1024,25 @@ Transform:
   m_Father: {fileID: 1977148781}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1889321360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889321356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e89b4a43ce85fe4c976b994127318ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletImpactPrefab:
+  - {fileID: 3769431819827140542, guid: 10e6d87cb1f0e414f9c6dca719c68da1, type: 3}
+  - {fileID: 3480311327071108907, guid: 58bac2e565001ad46aad9f58090adba4, type: 3}
+  - {fileID: 2457408859725351315, guid: dbe53cff0cf1cce49921f704d3c5ece9, type: 3}
+  - {fileID: 7599720874259473689, guid: 7e9029e4a0d05d64dbac2a47ea9d292e, type: 3}
+  - {fileID: 7060381426518425348, guid: ab76872f322e0d44b8a379581d4418e6, type: 3}
+  - {fileID: 1140149704470251130, guid: 3f1e2ac2fc9fb1c43b2b3da5daaefd09, type: 3}
 --- !u!1 &1933466903
 GameObject:
   m_ObjectHideFlags: 0
