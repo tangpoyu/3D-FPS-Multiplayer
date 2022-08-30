@@ -25,8 +25,8 @@ public class FindRoomMenuController : MonoBehaviour
             {
                 Destroy(trans.gameObject);
             }
-
-            foreach (RoomInfo roomInfo in Laucher.instance.RoomList)
+            Dictionary<string, RoomInfo>.ValueCollection roomInfos = Laucher.instance.RoomName_RoomInfo.Values;
+            foreach (RoomInfo roomInfo in roomInfos)
             {
                 GameObject obj = Instantiate(roomListPrefab, roomListContent);
                 obj.GetComponentInChildren<TMP_Text>().text = roomInfo.Name;

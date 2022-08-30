@@ -12,7 +12,8 @@ public class Laucher : MonoBehaviourPunCallbacks
     public static Laucher instance;
     private bool isLoad,isJoinedLobby, isCreatedRoom, isJoinedRoom, isCreateRoomFailed, isRoomListUpdated, isPlayerEnterRoomOrLeave;
     private string createRoomFailedMessage;
-    private List<RoomInfo> roomList;
+    
+    private Dictionary<string, RoomInfo> roomName_RoomInfo;
     private List<Player> players;
 
     public bool IsLoad { get => isLoad; set => isLoad = value; }
@@ -22,10 +23,10 @@ public class Laucher : MonoBehaviourPunCallbacks
     public bool IsCreateRoomFailed { get => isCreateRoomFailed; set => isCreateRoomFailed = value; }
     public string CreateRoomFailedMessage { get => createRoomFailedMessage; set => createRoomFailedMessage = value; }
     public bool IsRoomListUpdated { get => isRoomListUpdated; set => isRoomListUpdated = value; }
-    public List<RoomInfo> RoomList { get => roomList; set => roomList = value; }
+    public Dictionary<string, RoomInfo> RoomName_RoomInfo { get => roomName_RoomInfo; set => roomName_RoomInfo = value; }
     public List<Player> Players { get => players; set => players = value; }
     public bool IsPlayerEnterRoomOrLeave { get => isPlayerEnterRoomOrLeave; set => isPlayerEnterRoomOrLeave = value; }
-  
+ 
 
     private void Awake()
     {
@@ -34,7 +35,7 @@ public class Laucher : MonoBehaviourPunCallbacks
         {
             instance = this;
         }
-        RoomList = new List<RoomInfo>();
+        RoomName_RoomInfo = new Dictionary<string, RoomInfo>();
     }
 
     // Start is called before the first frame update
@@ -57,6 +58,7 @@ public class Laucher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
+        RoomName_RoomInfo.Clear();
         players = new List<Player>();
         print("joined the lobby");
         foreach(Player player in PhotonNetwork.PlayerList)
@@ -65,11 +67,11 @@ public class Laucher : MonoBehaviourPunCallbacks
         }
         IsLoad = false;
         IsJoinedLobby = true;
-        PhotonNetwork.NickName = "Player" + Random.Range(0, 100000).ToString("000000"); 
     }
 
     public void CreateRoom(string roomName)
     {
+       
         print("creat room");
         if (string.IsNullOrEmpty(roomName)) return;
         PhotonNetwork.CreateRoom(roomName);
@@ -128,6 +130,7 @@ public class Laucher : MonoBehaviourPunCallbacks
 
     public void LeaveRoom()
     {
+      
         PhotonNetwork.LeaveRoom();
         isCreatedRoom = false;
         isJoinedRoom = false;
@@ -144,12 +147,22 @@ public class Laucher : MonoBehaviourPunCallbacks
     {
         print("room list update");
         isRoomListUpdated = true;
-        this.roomList.Clear();
         foreach(RoomInfo room in roomList)
         {
-            if (room.RemovedFromList) continue;  // Need to check if room is removed from the List or not then initiate, becase
-            this.roomList.Add(room);            // Photon doesn't remove the RoomInfo when nobody in Room instead setting the                           
-        }                                      // RemovedFromList of field of RoomInfo to true.
+            // Need to check if room is removed from the List or not then initiate, becase
+            // Photon doesn't remove the RoomInfo when nobody in Room instead setting the
+            // RemovedFromList of field of RoomInfo to true.
+            if (!room.RemovedFromList)
+            {
+                RoomName_RoomInfo[room.Name] = room;
+            }
+            else
+            {
+                RoomName_RoomInfo.Remove(room.Name);
+
+            }
+        }                                      
+        
     }
 
     public void JoinRoom(string roomName)
