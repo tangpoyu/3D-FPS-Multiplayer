@@ -47,7 +47,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             Die();
             PlayerManager.Find(info.Sender).GetKill();
         }
-        UIController.instance.UpdataHealth(currentHealth > 0 ? currentHealth : 0);
+        // HealthBarUIController.instance.UpdataHealth(currentHealth > 0 ? currentHealth : 0);
     }
 
     private void Die()

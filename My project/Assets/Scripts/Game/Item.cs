@@ -9,8 +9,6 @@ public abstract class Item : MonoBehaviourPunCallbacks
     protected ItemInfo itemInfo;
     [SerializeField]
     private GameObject itemGameObject;
-    [SerializeField]
-    private PrefabManager materialManager;
     protected PhotonView myPhotonView;
 
     public GameObject ItemGameObject { get => itemGameObject; set => itemGameObject = value; }
@@ -18,7 +16,6 @@ public abstract class Item : MonoBehaviourPunCallbacks
     protected void Awake()
     {
        myPhotonView = GetComponent<PhotonView>();
-       materialManager = FindObjectOfType<PrefabManager>();
     }
 
     public abstract void use();

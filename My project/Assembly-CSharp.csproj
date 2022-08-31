@@ -58,9 +58,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Game\Model\PlayerModel.cs" />
     <Compile Include="Assets\Scripts\UI\Controller\FindRoomMenuController.cs" />
-    <Compile Include="Assets\bulletImpactButton.cs" />
+    <Compile Include="Assets\bulletImpactButtonController.cs" />
     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\SocketWebTcp.cs" />
     <Compile Include="Assets\Scripts\UI\View\RoomListItem.cs" />
+    <Compile Include="Assets\AppController.cs" />
     <Compile Include="Assets\Scripts\Game\PlayerGoundCheck.cs" />
     <Compile Include="Assets\Scripts\Game\Spawnpoint.cs" />
     <Compile Include="Assets\Scripts\Game\Model\Model.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Assets\PrefabManager.cs" />
     <Compile Include="Assets\Scripts\UI\Service\PlayerName.cs" />
     <Compile Include="Assets\Scripts\UI\Controller\LoadingMenuController.cs" />
+    <Compile Include="Assets\Scripts\Game\AppElement.cs" />
     <Compile Include="Assets\Scripts\UI\Controller\ErrorMenuController.cs" />
     <Compile Include="Assets\Scripts\UI\Controller\RoomMenuController.cs" />
     <Compile Include="Assets\Scripts\Game\Scoreboard.cs" />
@@ -87,15 +89,17 @@
     <Compile Include="Assets\Scripts\Game\IDamageable.cs" />
     <Compile Include="Assets\Scripts\Game\RoomManager.cs" />
     <Compile Include="Assets\Scripts\Game\PlayerManager.cs" />
+    <Compile Include="Assets\Scripts\Game\Controller\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Game\SingleShotGun.cs" />
-    <Compile Include="Assets\Scripts\Game\Controller\DecoratorUI.cs" />
+    <Compile Include="Assets\Scripts\Game\Controller\DecoratorUIController.cs" />
     <Compile Include="Assets\Scripts\Game\WeaponController.cs" />
     <Compile Include="Assets\Scripts\Game\GunInfo.cs" />
-    <Compile Include="Assets\Scripts\Game\Controller\UIController.cs" />
+    <Compile Include="Assets\Scripts\Game\Controller\HealthBarUIController.cs" />
     <Compile Include="Assets\Scripts\Game\View\View.cs" />
     <Compile Include="Assets\Scripts\UI\Controller\CreateRoomMenuController.cs" />
     <Compile Include="Assets\Scripts\Game\Item.cs" />
     <Compile Include="Assets\Scripts\UI\Service\Laucher.cs" />
+    <Compile Include="Assets\Application.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

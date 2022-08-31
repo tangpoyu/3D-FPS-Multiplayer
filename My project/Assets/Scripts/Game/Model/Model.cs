@@ -5,4 +5,6 @@ using UnityEngine;
 public class Model : MonoBehaviour
 {
     private PlayerModel playerModel;
+
+    public PlayerModel PlayerModel { get => playerModel; set => playerModel = value; }
 }

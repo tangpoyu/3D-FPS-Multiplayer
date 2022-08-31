@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Billboard" Collapsed="true">
+    <Position X="8.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQABAAAACAAAAAAAAAAAAAAAAAAAAAIAAAAAAAQAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Billboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraController" Collapsed="true">
+    <Position X="10.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQQBAAAAqAQBBAAAAQAAIAgAAAAEAEAAAAAAACAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\CameraController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraTest" Collapsed="true">
+    <Position X="12" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQQBAAAAqAQBBAAAAQAAIAgAIAAEAEAAAAAAACAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\CameraTest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gun" Collapsed="true">
+    <Position X="4.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAQAAAAAAAgAAAAAAgAAEA=</HashCode>
+      <FileName>Assets\Scripts\Game\Gun.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GunInfo" Collapsed="true">
+    <Position X="6.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\GunInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Item" Collapsed="true">
+    <Position X="4.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QgAAAAAAAAAAAAAAAAAAAAAABEAAAAQABAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Game\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ItemInfo" Collapsed="true">
+    <Position X="6.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\ItemInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerGoundCheck" Collapsed="true">
+    <Position X="8.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAABAAAAAAAAAAAAAAAIAMQABAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Game\PlayerGoundCheck.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerManager" Collapsed="true">
+    <Position X="12" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAABjAEAAAAAABAAIAAABAAAAIAAQAEA=</HashCode>
+      <FileName>Assets\Scripts\Game\PlayerManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RoomManager" Collapsed="true">
+    <Position X="8.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAACAAAAAAAAAAAAAAAIAAAAAAAQCEA=</HashCode>
+      <FileName>Assets\Scripts\Game\RoomManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Scoreboard" Collapsed="true">
+    <Position X="10.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JAQAAAAAAGAAAQAAAAAAQAABAAAAAEAAAAAEAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Game\Scoreboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScoreboardItem" Collapsed="true">
+    <Position X="12" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAQAAAQAAAAAAAAAAAAAhAAAABAgAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\ScoreboardItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SingleShotGun" Collapsed="true">
+    <Position X="4.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAABAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\SingleShotGun.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spawnpoint" Collapsed="true">
+    <Position X="13.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Game\Spawnpoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpawnpointManager" Collapsed="true">
+    <Position X="15.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABCAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Game\SpawnpointManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WeaponController" Collapsed="true">
+    <Position X="8.5" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>BAQAAAAQBCAAAAQAAAgAAAAAAIAABAAAAAAAABgQAEA=</HashCode>
+      <FileName>Assets\Scripts\Game\WeaponController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model" Collapsed="true">
+    <Position X="15.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Model\Model.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerModel" Collapsed="true">
+    <Position X="13.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\Model\PlayerModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DecoratorUI" Collapsed="true">
+    <Position X="13.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ICQAgABAASAAAAAAAAAAAACAAAAAAAAAABAEgCAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Game\Controller\DecoratorUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerHealth" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAQgAAAAAAAAAAAEAAAAAAAAgAAQAEg=</HashCode>
+      <FileName>Assets\Scripts\Game\Controller\PlayerHealth.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PlayerMoveController" Collapsed="true">
+    <Position X="15.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQQBCgAAqAYFBAEAAQAAIAAAACAEEEAAAAAAACQCEA=</HashCode>
+      <FileName>Assets\Scripts\Game\Controller\PlayerMoveController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIController" Collapsed="true">
+    <Position X="8.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACAAAACAAAAAAAAAAAAAAAABAAAAAAAAAAAAQAEA=</HashCode>
+      <FileName>Assets\Scripts\Game\Controller\UIController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="IDamageable" Collapsed="true">
+    <Position X="8.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Game\IDamageable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

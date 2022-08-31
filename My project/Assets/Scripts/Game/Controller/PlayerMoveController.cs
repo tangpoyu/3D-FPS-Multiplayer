@@ -2,7 +2,7 @@ using Photon.Pun;
 using UnityEngine;
 
 // Controller
-public class PlayerMoveController : MonoBehaviour
+public class PlayerMoveController : AppElement
 {
  
     [SerializeField]
