@@ -1533,8 +1533,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14548e19278bedc45839c4a843d75030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  riffle: {fileID: 2766498369901533720}
-  pistol: {fileID: 756422793351588605}
   playerController: {fileID: 1331285386}
   canvasGroup: {fileID: 7410629929020157785}
   Colors: {fileID: 6102470872846758716}
@@ -1597,6 +1595,14 @@ PrefabInstance:
     - target: {fileID: 1250706763360659391, guid: 01d5ecd73a570c14990b80401a333fe3, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853046422429135276, guid: 01d5ecd73a570c14990b80401a333fe3, type: 3}
+      propertyPath: m_SynchronizeScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780925902907129107, guid: 01d5ecd73a570c14990b80401a333fe3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2780925902907129107, guid: 01d5ecd73a570c14990b80401a333fe3, type: 3}
       propertyPath: materialManager
@@ -1692,18 +1698,14 @@ PrefabInstance:
     - {fileID: 8789572569399006951, guid: 01d5ecd73a570c14990b80401a333fe3, type: 3}
     - {fileID: 4534077474656398661, guid: 01d5ecd73a570c14990b80401a333fe3, type: 3}
     - {fileID: 5996853500153559425, guid: 01d5ecd73a570c14990b80401a333fe3, type: 3}
+    - {fileID: 760013524450758134, guid: 01d5ecd73a570c14990b80401a333fe3, type: 3}
+    - {fileID: 2780925902907129107, guid: 01d5ecd73a570c14990b80401a333fe3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 01d5ecd73a570c14990b80401a333fe3, type: 3}
---- !u!114 &756422793351588605 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 760013524450758134, guid: 01d5ecd73a570c14990b80401a333fe3, type: 3}
+--- !u!1 &458411710146658427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 481847528781801328, guid: 01d5ecd73a570c14990b80401a333fe3, type: 3}
   m_PrefabInstance: {fileID: 68476226110203659}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9222022883821609357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef3fd14dee1623341a9f20b1d3f6925a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1272304207001665716 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1250706763360659391, guid: 01d5ecd73a570c14990b80401a333fe3, type: 3}
@@ -1728,9 +1730,9 @@ MonoBehaviour:
   walkSpeed: 3
   jumpForce: 300
   smoothTime: 0.15
-  items:
-  - {fileID: 2766498369901533720}
-  - {fileID: 756422793351588605}
+  singleShotGunController:
+  - {fileID: 7819284183525750775}
+  - {fileID: 6479923738511987638}
 --- !u!114 &1331285386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1813,6 +1815,36 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &941490253793142495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462853217955707049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820f8f6ac59e08f468a860538601c558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: RIFFLE
+  itemGameObject: {fileID: 6619969610559084202}
+  cam: {fileID: 9074604880521381916}
+  bulletImpactPrefeb: {fileID: 3769431819827140542, guid: 10e6d87cb1f0e414f9c6dca719c68da1, type: 3}
+  damage: 25
+--- !u!114 &7819284183525750775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462853217955707049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bbef176c248271429483ab1d0291bf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunModel: {fileID: 941490253793142495}
 --- !u!114 &1820598998061930151 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1853046422429135276, guid: 01d5ecd73a570c14990b80401a333fe3, type: 3}
@@ -1824,17 +1856,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2766498369901533720 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2780925902907129107, guid: 01d5ecd73a570c14990b80401a333fe3, type: 3}
-  m_PrefabInstance: {fileID: 68476226110203659}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462853217955707049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef3fd14dee1623341a9f20b1d3f6925a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &4184650460402759446 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4242843503733805085, guid: 01d5ecd73a570c14990b80401a333fe3, type: 3}
@@ -1843,6 +1864,16 @@ Transform:
 --- !u!1 &5786519749571267190 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5818263475757116797, guid: 01d5ecd73a570c14990b80401a333fe3, type: 3}
+  m_PrefabInstance: {fileID: 68476226110203659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6619969610559084202 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6570080650279973281, guid: 01d5ecd73a570c14990b80401a333fe3, type: 3}
+  m_PrefabInstance: {fileID: 68476226110203659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &9074604880521381916 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 9015150703527292695, guid: 01d5ecd73a570c14990b80401a333fe3, type: 3}
   m_PrefabInstance: {fileID: 68476226110203659}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &9222022883821609357 stripped
@@ -1872,3 +1903,33 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &4096694633081953865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9222022883821609357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820f8f6ac59e08f468a860538601c558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: PISTOL
+  itemGameObject: {fileID: 458411710146658427}
+  cam: {fileID: 9074604880521381916}
+  bulletImpactPrefeb: {fileID: 3769431819827140542, guid: 10e6d87cb1f0e414f9c6dca719c68da1, type: 3}
+  damage: 50
+--- !u!114 &6479923738511987638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9222022883821609357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bbef176c248271429483ab1d0291bf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunModel: {fileID: 4096694633081953865}
