@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4465740934583415259}
-  - component: {fileID: 1831995008650865871}
+  - component: {fileID: 718856854868509764}
+  - component: {fileID: 2450000090282468237}
+  - component: {fileID: 5277756689167089015}
   m_Layer: 0
   m_Name: ScoreboardItem
   m_TagString: Untagged
@@ -41,7 +43,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1831995008650865871
+--- !u!114 &718856854868509764
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,7 +52,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 388871419625202624}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04bb9ddac6c820042bbdcbd9375f8da8, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ee1f9445e27b354182a9375423d90e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreboardItemController: {fileID: 2450000090282468237}
+--- !u!114 &2450000090282468237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388871419625202624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b76f3d38d0d7cb4cbc29224626f446f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreboardItemModel: {fileID: 5277756689167089015}
+--- !u!114 &5277756689167089015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388871419625202624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f4cb69b509365540a463452096421c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   usernameText: {fileID: 8213170442188947943}

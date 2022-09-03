@@ -3,6 +3,7 @@ using Photon.Realtime;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
@@ -11,35 +12,29 @@ public class PlayerController : AppElement
 {
     [SerializeField]
     private PlayerModel playerModel;
-    [SerializeField]
-    private PhotonView pv;
-    [SerializeField]
-    private Camera camera;
-    [SerializeField]
-    private HealthBarUIController healthBarUIController;
-
+   
     public PlayerModel PlayerModel { get => playerModel; set => playerModel = value; }
 
-    internal Vector3 Move(float horizontal, float vertical, bool leftShift, Vector3 moveAmount)
+    internal void Move(float horizontal, float vertical, bool leftShift)
     {
         Vector3 move = new Vector3(horizontal, 0, vertical).normalized;
         var smoothMoveVelocit = playerModel.SmoothMoveVelocit;
-        moveAmount = Vector3.SmoothDamp(moveAmount, 
+        playerModel.MoveAmount = Vector3.SmoothDamp(playerModel.MoveAmount, 
             move * (leftShift ? playerModel.SprintSpeed : playerModel.WalkSpeed),
             ref smoothMoveVelocit,
             playerModel.SmoothTime);
-        return moveAmount;
     }
 
-    internal float Jomp(bool space)
+    internal void ApplyPhysics()
+    {
+        playerModel.Rb.MovePosition(playerModel.Rb.position + transform.TransformDirection(playerModel.MoveAmount) * Time.fixedDeltaTime);
+    }
+
+    internal void Jump(bool space)
     {
        if(space && playerModel.Grounded)
         {
-            return playerModel.JumpForce;
-        }
-        else
-        {
-            return 0;
+            playerModel.Rb.AddForce(transform.up * playerModel.JumpForce);
         }
     }
 
@@ -48,12 +43,12 @@ public class PlayerController : AppElement
         playerModel.Grounded = v;
     }
 
-    internal float Look(float mouseX, float mouseY, ref Rigidbody rb)
+    internal void Look(float mouseX, float mouseY)
     {
-        rb.transform.Rotate(Vector3.up * mouseX * playerModel.MouseSensitivity);
+        playerModel.Rb.transform.Rotate(Vector3.up * mouseX * playerModel.MouseSensitivity);
         playerModel.VerticalLookRotation += -mouseY * playerModel.MouseSensitivity;
         playerModel.VerticalLookRotation = Mathf.Clamp(playerModel.VerticalLookRotation, -70, 80);
-        return playerModel.VerticalLookRotation;
+        playerModel.CameraHolder.transform.localRotation = Quaternion.Euler(playerModel.VerticalLookRotation, 0, 0);
     }
 
     internal void LockAndUnlockCursor(bool v)
@@ -125,7 +120,7 @@ public class PlayerController : AppElement
             playerModel.SingleShotGunController[playerModel.PreviousItemIndex].gunModel.ItemGameObject.SetActive(false);
         }
         playerModel.PreviousItemIndex = playerModel.CurrentitemIndex;
-        if (pv.IsMine)
+        if (playerModel.Pv.IsMine)
         {
             // LEARN: 
             Hashtable hash = new Hashtable();
@@ -141,14 +136,16 @@ public class PlayerController : AppElement
 
     internal void TakeDamage(float damage)
     {
-        pv.RPC(nameof(RPC_TakeDamage), pv.Owner, damage);
+        playerModel.Pv.RPC(nameof(RPC_TakeDamage), playerModel.Pv.Owner, damage);
     }
 
     [PunRPC]
-    public void RPC_Kill()
+    public void RPC_Kill(Player killer)
     {
+        PlayerModel killerData = FindObjectsOfType<PlayerModel>().SingleOrDefault(x => x.Pv.Owner == killer);
+        killerData.Kill++;
         Hashtable hash = new Hashtable();
-        hash.Add("kill", 1);
+        hash.Add("kill", killerData.Kill);
         PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
     }
 
@@ -161,11 +158,12 @@ public class PlayerController : AppElement
             playerModel.Death++;
             Hashtable hash = new Hashtable();
             hash.Add("death", playerModel.Death);
-            pv.RPC(nameof(RPC_Kill), info.Sender);
+            playerModel.Pv.RPC(nameof(RPC_Kill), info.Sender, info.Sender);
             PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
-            camera.gameObject.SetActive(true);
-            PhotonNetwork.Destroy(pv);
+            playerModel.GhostModeCamera.gameObject.SetActive(true);
+            GetComponentInParent<PlayerManager>().PlayerRespawn();
+            PhotonNetwork.Destroy(playerModel.Pv);
         }
-        healthBarUIController.UpdataHealth(playerModel.CurrentHealth > 0 ? playerModel.CurrentHealth : 0);
+        playerModel.HealthBarUIController.UpdataHealth(playerModel.CurrentHealth > 0 ? playerModel.CurrentHealth : 0);
     }
 }

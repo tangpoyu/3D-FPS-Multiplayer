@@ -14,9 +14,12 @@ public class PlayerManager : MonoBehaviour
 {
     private PhotonView pv;
     private GameObject player;
-    private int kill;
-    private int death;
 
+    /////  [ NOT USE ] //////
+    private int kill;      //
+    private int death;     //
+    /////////////////////////
+    
     private void Awake()
     {
         pv = GetComponent<PhotonView>();
@@ -32,55 +35,58 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
-            print("");
+          
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void CreateController()
     {
         player = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerHolder"), new Vector3(0,0, UnityEngine.Random.Range(-4,2)), Quaternion.identity, 0, new object[] { pv.ViewID });
         player.name = "myPlayer";
+        player.transform.SetParent(this.transform);
     }
 
-    internal void Die()
+    internal void PlayerRespawn()
     {
-        player.transform.Find("Camera").gameObject.SetActive(true);
-        PhotonNetwork.Destroy(player.transform.Find("Player").GetComponent<PhotonView>());
-        death++;
-        Hashtable hash = new Hashtable();
-        hash.Add("death", death);
-        PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
-        Invoke(nameof(Respawn), 10);
+        StartCoroutine("PlayerRespawnCoroutine");
     }
 
-    public void Respawn()
+    IEnumerator PlayerRespawnCoroutine()
     {
+        yield return new WaitForSeconds(10);
         Destroy(player);
         CreateController();
     }
 
-    public void GetKill()
-    {
-        pv.RPC(nameof(RPC_GetKill), pv.Owner);
-    }
-
-    [PunRPC]
-    void RPC_GetKill()
-    {
-        kill++;
-        Hashtable hash = new Hashtable();
-        hash.Add("kill", kill);
-        PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
-    }
-
-    public static PlayerManager Find(Player player)
-    {
-        return FindObjectsOfType<PlayerManager>().SingleOrDefault(x => x.pv.Owner == player);
-    }
+    ///////////////////////////////////  [ NOT UES ]//////////////////////////////////////////////////////////
+    internal void Die()                                                                                     //
+    {                                                                                                       //
+        player.transform.Find("Camera").gameObject.SetActive(true);                                         //
+        PhotonNetwork.Destroy(player.transform.Find("Player").GetComponent<PhotonView>());                  //
+        death++;                                                                                            //
+        Hashtable hash = new Hashtable();                                                                   //
+        hash.Add("death", death);                                                                           //
+        PhotonNetwork.LocalPlayer.SetCustomProperties(hash);                                                //
+        // Invoke(nameof(Respawn), 10);                                                                        //
+    }                                                                                                       //
+                                                                                                            //
+    public void GetKill()                                                                                   //
+    {                                                                                                       //
+        pv.RPC(nameof(RPC_GetKill), pv.Owner);                                                              //
+    }                                                                                                       //
+                                                                                                            //
+    [PunRPC]                                                                                                //
+    void RPC_GetKill()                                                                                      //
+    {                                                                                                       //
+        kill++;                                                                                             //
+        Hashtable hash = new Hashtable();                                                                   //
+        hash.Add("kill", kill);                                                                             //
+        PhotonNetwork.LocalPlayer.SetCustomProperties(hash);                                                //
+    }                                                                                                       //
+                                                                                                            //
+    public static PlayerManager Find(Player player)                                                         //
+    {                                                                                                       //
+        return FindObjectsOfType<PlayerManager>().SingleOrDefault(x => x.pv.Owner == player);               //
+    }                                                                                                       //
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
 }

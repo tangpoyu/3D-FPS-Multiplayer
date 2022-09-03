@@ -13,18 +13,6 @@ public class SingleShotGunController : GunController
         base.Awake();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override void use()
     {
         Ray ray = gunModel.cam.ViewportPointToRay(new Vector3(0.5f, 0.5f));
@@ -73,24 +61,6 @@ public class SingleShotGunController : GunController
                     break;
             }
             GameObject bulletImpact = PhotonNetwork.Instantiate(path, myPosition, myQuaternion);
-
-            //if (pv.IsMine)
-            //{
-            //    Hashtable hash = new Hashtable();
-            //    Color color;
-            //    PrefabManager.instance.BulletImpact_color.TryGetValue(bulletImapct, out color);
-            //    float[] colors = new float[4];
-            //    colors[0] = color.r; colors[1] = color.g; color[2] = color.b; color[3] = color.a;
-            //    float[] positions = new float[3];
-            //    positions[0] = myPosition.x; positions[1] = myPosition.y; positions[2] = myPosition.z;
-            //    float[] quaternions = new float[4];
-            //    quaternions[0] = myQuaternion.x; quaternions[1] = myQuaternion.y;
-            //    quaternions[2] = myQuaternion.z; quaternions[3] = myQuaternion.w;
-
-            //   // data.Add("colors",(object[]) colors);
-            //    hash.Add("bulletImpact", bulletImapct);
-            //    PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
-            //}
 
             StartCoroutine(BulletImpactDestory(bulletImpact));
             if(!(colliders[0].gameObject.GetComponent<IDamageable>() == null))

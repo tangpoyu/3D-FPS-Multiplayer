@@ -9,7 +9,6 @@ using UnityEngine.SceneManagement;
 // View
 public class RoomManager : MonoBehaviourPunCallbacks
 {
-    private PhotonView pv;
     public override void OnEnable()
     {
         base.OnEnable();
@@ -20,28 +19,14 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         base.OnDisable();
     }
-    private void Awake()
-    {
-        print("1");
-    }
-
+   
     private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
         if(arg0.name == "Game")
         {
-            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerManager"), Vector3.zero, Quaternion.identity).name = "myPlayerManager";
+            GameObject playerManager = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerManager"), Vector3.zero, Quaternion.identity);
+            playerManager.name = "myPlayerManager";
+            playerManager.transform.SetParent(this.transform);
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

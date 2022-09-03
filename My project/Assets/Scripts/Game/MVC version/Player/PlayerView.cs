@@ -5,78 +5,60 @@ using UnityEngine;
 
 public class PlayerView : AppElement, IDamageable
 {
-    private Rigidbody rb;
-    private PhotonView pv;
-    [SerializeField]
-    private GameObject cameraHolder, healthBar, decoratorUI;
+  
     [SerializeField]
     private PlayerController playerController;
-    private Vector3 moveAmount;
-
-    public Rigidbody Rb { get => rb; set => rb = value; }
-    public PhotonView Pv { get => pv; set => pv = value; }
-
-    private void Awake()
-    {
-        Rb = GetComponent<Rigidbody>();
-        Pv = GetComponent<PhotonView>();
-    }
 
     private void Start()
     {
-        if (!pv.IsMine)
+        if (playerController.PlayerModel.Pv.IsMine)
         {
-            rb.useGravity = false;
-            rb.constraints = RigidbodyConstraints.FreezePosition;
-            Destroy(cameraHolder);
-            Destroy(healthBar);
-            Destroy(decoratorUI);
-            playerController.initialItem();
-        }
-        else
-        {
-            playerController.EquipItem(0);
+            StartCoroutine(ControllerPlayer());
+            StartCoroutine(ApplyPhysics());
         }
     }
 
-    private void Update()
+    IEnumerator ControllerPlayer()
     {
-        if (pv.IsMine)
+        Jump();
+        LockAndUnlockCursor();
+        if (Cursor.lockState == CursorLockMode.Locked)
         {
-            Jump();
-            LockAndUnlockCursor();
-            if (Cursor.lockState == CursorLockMode.Locked)
-            {
-                Look();
-            }
-            SwitchWeapon();
-            Attack();
-            Move();
+            Look();
+        }
+        SwitchWeapon();
+        Attack();
+        Move();
+        yield return new WaitForSeconds(0.020f);
+        if(playerController.PlayerModel.Pv != null)
+        {
+            StartCoroutine(ControllerPlayer());
         }
     }
 
-    private void FixedUpdate()
+    IEnumerator ApplyPhysics()
     {
-        if(pv.IsMine) rb.MovePosition(rb.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
+        playerController.ApplyPhysics();
+        yield return new WaitForFixedUpdate();
+        if (playerController.PlayerModel.Pv != null)
+        {
+            StartCoroutine(ApplyPhysics());
+        }
     }
 
     public void Move()
     {
-        moveAmount = playerController.Move(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), Input.GetKey(KeyCode.LeftShift), moveAmount);
+        playerController.Move(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), Input.GetKey(KeyCode.LeftShift));
     }
 
     public void Jump()
     {
-        rb.AddForce(transform.up * playerController.Jomp(Input.GetKeyDown(KeyCode.Space)));
+        playerController.Jump(Input.GetKeyDown(KeyCode.Space));
     }
 
     public void Look()
     {
-        var rb = Rb;
-        cameraHolder.transform.localRotation = Quaternion.Euler(
-            playerController.Look(Input.GetAxisRaw("Mouse X"),Input.GetAxisRaw("Mouse Y"), ref rb),
-            0,
-            0);
+        playerController.Look(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
     }
 
     public void LockAndUnlockCursor()

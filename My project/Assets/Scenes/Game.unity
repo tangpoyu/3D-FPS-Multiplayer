@@ -478,8 +478,10 @@ GameObject:
   m_Component:
   - component: {fileID: 812733646}
   - component: {fileID: 812733648}
-  - component: {fileID: 812733647}
   - component: {fileID: 812733649}
+  - component: {fileID: 812733652}
+  - component: {fileID: 812733651}
+  - component: {fileID: 812733650}
   m_Layer: 0
   m_Name: Scoreboard
   m_TagString: Untagged
@@ -507,21 +509,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -200, y: -200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &812733647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 812733645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea437c0e495836c4489a6ee484a326d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  container: {fileID: 812733646}
-  scoreboardItemPrefab: {fileID: 388871419625202624, guid: ec0f159935aaa7d489e4a47295387b14, type: 3}
-  canvasGroup: {fileID: 812733649}
 --- !u!114 &812733648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,6 +547,47 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &812733650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812733645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23af4857fca3c154d839de7c704cb3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container: {fileID: 812733646}
+  scoreboardItemPrefab: {fileID: 388871419625202624, guid: ec0f159935aaa7d489e4a47295387b14, type: 3}
+  canvasGroup: {fileID: 812733649}
+--- !u!114 &812733651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812733645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b96da86a88621f945bacc16782d1aded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreboardModel: {fileID: 812733650}
+--- !u!114 &812733652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812733645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b1bf6d4c0bb58045b61c570d8fd1775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreboardController: {fileID: 812733651}
 --- !u!1 &1354796666
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,8 +1009,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1889321359}
-  - component: {fileID: 1889321358}
   - component: {fileID: 1889321357}
+  - component: {fileID: 1889321358}
   - component: {fileID: 1889321360}
   m_Layer: 0
   m_Name: Room
@@ -1033,7 +1061,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1889321356}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 526.27045, y: 267.74216, z: 4.067634}
+  m_LocalPosition: {x: 0, y: 0.96, z: 5.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
