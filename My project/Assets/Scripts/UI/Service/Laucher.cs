@@ -1,5 +1,6 @@
 using Photon.Pun;
 using Photon.Realtime;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,14 +10,17 @@ using UnityEngine;
 // service
 public class Laucher : MonoBehaviourPunCallbacks
 {
+  
+
     public static Laucher instance;
-    private bool isLoad,isJoinedLobby, isCreatedRoom, isJoinedRoom, isCreateRoomFailed, isRoomListUpdated, isPlayerEnterRoomOrLeave;
+    private bool isLoad, isInLogin, isJoinedLobby, isCreatedRoom, isJoinedRoom, isCreateRoomFailed, isRoomListUpdated, isPlayerEnterRoomOrLeave;
     private string createRoomFailedMessage;
     
     private Dictionary<string, RoomInfo> roomName_RoomInfo;
     private List<Player> players;
 
     public bool IsLoad { get => isLoad; set => isLoad = value; }
+    public bool IsInLogin { get => isInLogin; set => isInLogin = value; }
     public bool IsJoinedLobby { get => isJoinedLobby; set => isJoinedLobby = value; }
     public bool IsCreatedRoom { get => isCreatedRoom; set => isCreatedRoom = value; }
     public bool IsJoinedRoom { get => isJoinedRoom; set => isJoinedRoom = value; }
@@ -36,43 +40,48 @@ public class Laucher : MonoBehaviourPunCallbacks
             instance = this;
         }
         RoomName_RoomInfo = new Dictionary<string, RoomInfo>();
+        isInLogin = true;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void conntect()
     {
-        print("conntect to server");
+        string nickname = PlayerPrefs.GetString("USERNAME");
+        Debug.Log($"To conntect to Phton server as {nickname} player.");
+        PhotonNetwork.AuthValues = new AuthenticationValues(nickname);
+        // Make all player can enter the Game Scene at the same time.
+        PhotonNetwork.AutomaticallySyncScene = true;
+        PhotonNetwork.NickName = nickname;
         PhotonNetwork.ConnectUsingSettings();
-        IsLoad = true;
+        // IsLoad = true;
     }
 
     // which is called when connecting to the Photon Server by Photon Server.
     public override void OnConnectedToMaster()
     {
-        print("Connected to Server and then to Join the Lobby");
+        Debug.Log("Connected to Server and then to Join the Lobby.");
         PhotonNetwork.JoinLobby();
-        
-        // Make all player can enter the Game Scene at the same time.
-        PhotonNetwork.AutomaticallySyncScene = true;
     }
 
     public override void OnJoinedLobby()
     {
+        Debug.Log("Joined the lobby successfully.");
+        isInLogin = false;
+        isJoinedLobby = true;
+        // all method which subscribe this action will be executed with no parameter.
+ 
         RoomName_RoomInfo.Clear();
         players = new List<Player>();
-        print("joined the lobby");
         foreach(Player player in PhotonNetwork.PlayerList)
         {
             players.Add(player);
         }
-        IsLoad = false;
-        IsJoinedLobby = true;
+        // IsLoad = false;
     }
 
     public void CreateRoom(string roomName)
     {
-       
-        print("creat room");
+
+        Debug.Log("To creat a room.");
         if (string.IsNullOrEmpty(roomName)) return;
         PhotonNetwork.CreateRoom(roomName);
         IsLoad = true;
@@ -80,7 +89,7 @@ public class Laucher : MonoBehaviourPunCallbacks
 
     public override void OnCreatedRoom()
     {
-        print("create a room");
+        Debug.Log("Created a room successfully.");
         isPlayerEnterRoomOrLeave = true;
         players.Clear();
         foreach (Player player in PhotonNetwork.PlayerList)
@@ -93,7 +102,7 @@ public class Laucher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        print("Joined the Room");
+        Debug.Log("Joined the Room successfully.");
         isPlayerEnterRoomOrLeave = true;
         players.Clear();
         foreach(Player player in PhotonNetwork.PlayerList)
@@ -117,7 +126,7 @@ public class Laucher : MonoBehaviourPunCallbacks
 
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
-        print("creat room failed");
+        Debug.Log("Created room failed.");
         isLoad = false;
         IsCreateRoomFailed = true;
         CreateRoomFailedMessage = message;
@@ -145,7 +154,7 @@ public class Laucher : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        print("room list update");
+        Debug.Log("room list update");
         isRoomListUpdated = true;
         foreach(RoomInfo room in roomList)
         {
@@ -167,12 +176,14 @@ public class Laucher : MonoBehaviourPunCallbacks
 
     public void JoinRoom(string roomName)
     {
+        Debug.Log("To join room.");
         PhotonNetwork.JoinRoom(roomName);
         isLoad = true;
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
+        Debug.Log($"{newPlayer} Joined room successfully.");
         isPlayerEnterRoomOrLeave = true;
         players.Add(newPlayer);
     }

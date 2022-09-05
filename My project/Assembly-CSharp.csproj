@@ -56,65 +56,72 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Game\MVC version\Player\PlayerModel.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\Item\GunModel.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\Player\PlayerModel.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\Item\GunModel.cs" />
     <Compile Include="Assets\Scripts\UI\Controller\FindRoomMenuController.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\UI\DecoratorUI\bulletImpactButtonController.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\UI\DecoratorUI\bulletImpactButtonController.cs" />
     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\SocketWebTcp.cs" />
+    <Compile Include="Assets\Scripts\UI\AddFriend.cs" />
+    <Compile Include="Assets\Scripts\UI\Playfab\Playfab.cs" />
     <Compile Include="Assets\Scripts\UI\View\RoomListItem.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\App\AppController.cs" />
-    <Compile Include="Assets\Scripts\Game\Previous version\PlayerGoundCheck.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\Item\ItemController.cs" />
-    <Compile Include="Assets\Scripts\Game\Spawnpoint.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\App\AppModel.cs" />
-    <Compile Include="Assets\Scripts\Game\Previous version\ScoreboardItem.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\UI\Scoreboard\ScoreboardModel.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\App\AppController.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\Previous version\PlayerGoundCheck.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\Item\ItemController.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\Spawnpoint.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\App\AppModel.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\UI\Scoreboard\ScoreboardItem\ScoreboardItemController.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\Previous version\ScoreboardItem.cs" />
     <Compile Include="Assets\Scripts\UI\View\PlayerListItem.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\BulletImpact.cs" />
-    <Compile Include="Assets\Scripts\Game\SpawnpointManager.cs" />
-    <Compile Include="Assets\Scripts\Game\PrefabManager.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\BulletImpact.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\SpawnpointManager.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\PrefabManager.cs" />
     <Compile Include="Assets\Scripts\UI\Service\PlayerName.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\UI\Scoreboard\ScoreboardItem\ScoreboardItemModel.cs" />
     <Compile Include="Assets\Scripts\UI\Controller\LoadingMenuController.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\UI\DecoratorUI\DecoratorUIView.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\AppElement.cs" />
+    <Compile Include="Assets\UIFriendItem.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\UI\Scoreboard\ScoreboardItem\ScoreboardItemView.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\UI\DecoratorUI\DecoratorUIView.cs" />
+    <Compile Include="Assets\FriendUIView.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\AppElement.cs" />
     <Compile Include="Assets\Scripts\UI\Controller\ErrorMenuController.cs" />
     <Compile Include="Assets\Scripts\UI\Controller\RoomMenuController.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\Item\GunController.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\UI\DecoratorUI\bulletImapctButtonModel.cs" />
-    <Compile Include="Assets\Scripts\Game\Previous version\Scoreboard.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\Item\GunController.cs" />
+    <Compile Include="Assets\FriendUIController.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\UI\DecoratorUI\bulletImapctButtonModel.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\Previous version\Scoreboard.cs" />
     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\WebSocket.cs" />
     <Compile Include="Assets\Scripts\UI\Controller\TitleMenuController.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\Player\PlayerView.cs" />
-    <Compile Include="Assets\Scripts\Game\Previous version\ItemInfo.cs" />
-    <Compile Include="Assets\Scripts\Game\Billboard.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\Item\ItemModel.cs" />
-    <Compile Include="Assets\Scripts\Game\CameraController.cs" />
-    <Compile Include="Assets\Scripts\Game\CameraTest.cs" />
-    <Compile Include="Assets\Scripts\Game\Previous version\PlayerMoveController.cs" />
-    <Compile Include="Assets\Scripts\Game\Previous version\Gun.cs" />
-    <Compile Include="Assets\Scripts\Game\Previous version\PlayerHealth.cs" />
-    <Compile Include="Assets\Scripts\Game\IDamageable.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\Item\SingleShotGunController.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\UI\DecoratorUI\DecoratorUIModel.cs" />
-    <Compile Include="Assets\Scripts\Game\RoomManager.cs" />
-    <Compile Include="Assets\Scripts\Game\PlayerManager.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\UI\HealthBarUI\HealthBarUIModel.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\Player\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Game\Previous version\SingleShotGun.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\UI\DecoratorUI\DecoratorUIController.cs" />
-    <Compile Include="Assets\Scripts\Game\Previous version\WeaponController.cs" />
-    <Compile Include="Assets\Scripts\Game\Previous version\GunInfo.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\UI\HealthBarUI\HealthBarUIController.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\App\AppView.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\Player\PlayerView.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\Previous version\ItemInfo.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\UI\Scoreboard\ScoreBoardView.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\Billboard.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\Item\ItemModel.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\CameraController.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\CameraTest.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\Previous version\PlayerMoveController.cs" />
+    <Compile Include="Assets\PlayFabFriend.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\Previous version\Gun.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\Previous version\PlayerHealth.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\IDamageable.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\Item\SingleShotGunController.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\UI\DecoratorUI\DecoratorUIModel.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\RoomManager.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\PlayerManager.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\UI\HealthBarUI\HealthBarUIModel.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\Previous version\SingleShotGun.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\UI\DecoratorUI\DecoratorUIController.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\Previous version\WeaponController.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\Previous version\GunInfo.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\UI\HealthBarUI\HealthBarUIController.cs" />
+    <Compile Include="Assets\FriendUIModel.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\App\AppView.cs" />
     <Compile Include="Assets\Scripts\UI\Controller\CreateRoomMenuController.cs" />
-    <Compile Include="Assets\Scripts\Game\Previous version\Item.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\UI\Scoreboard\ScoreboardController.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\Previous version\Item.cs" />
     <Compile Include="Assets\Scripts\UI\Service\Laucher.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\Application.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\UI\Scoreboard\ScoreBoardView.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\UI\Scoreboard\ScoreboardController.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\UI\Scoreboard\ScoreboardModel.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\UI\Scoreboard\ScoreboardItem\ScoreboardItemModel.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\UI\Scoreboard\ScoreboardItem\ScoreboardItemController.cs" />
-    <Compile Include="Assets\Scripts\Game\MVC version\UI\Scoreboard\ScoreboardItem\ScoreboardItemView.cs" />
+    <Compile Include="Assets\Scripts\UI\Service\Game\MVC version\Application.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -867,6 +874,18 @@
     <ProjectReference Include="PhotonChat.csproj">
       <Project>{D7C783D3-6B1D-12EC-0BB6-F34981A7A963}</Project>
       <Name>PhotonChat</Name>
+    </ProjectReference>
+    <ProjectReference Include="PlayFabSDKEditor.csproj">
+      <Project>{DD908076-CF29-92E8-A596-444BF7E6E5D2}</Project>
+      <Name>PlayFabSDKEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="PlayFabEditorExtensions.csproj">
+      <Project>{2E6DC839-435B-86A5-F3EF-D0F7EAA645D1}</Project>
+      <Name>PlayFabEditorExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="PlayFab.csproj">
+      <Project>{3AF55660-CCC9-AAC2-E268-B941A1B5D63D}</Project>
+      <Name>PlayFab</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Editor.csproj">
       <Project>{89D99A34-C977-9144-C554-6D6AAB09F39D}</Project>

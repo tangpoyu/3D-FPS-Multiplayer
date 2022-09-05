@@ -5,11 +5,24 @@ using UnityEngine;
 // controller
 public class TitleMenuController : MonoBehaviour
 {
-    [SerializeField] GameObject findRoomMenu,  creatRoomMenu; // view [ createRoomMenu , findRoomMenu ]
+    [SerializeField] GameObject findRoomMenu,  creatRoomMenu, FriendUI, Image; // view [ createRoomMenu , findRoomMenu ]
 
     private void Update()
     {
-        this.gameObject.SetActive(Laucher.instance.IsJoinedLobby ? true : false); // service [ Laucher ]
+        // service [ Laucher ]
+        if (Laucher.instance.IsJoinedLobby || Laucher.instance.IsInLogin)
+        {
+            this.gameObject.SetActive(true);
+        }
+        else
+        {
+            this.gameObject.SetActive(false);
+        }
+      
+        if(Laucher.instance.IsInLogin == false)
+        {
+            Image.gameObject.SetActive(false);
+        }
     }
 
     public void findRoom()
@@ -24,5 +37,8 @@ public class TitleMenuController : MonoBehaviour
         creatRoomMenu.SetActive(true);
     }
 
-
+    public void OpenFriendUI()
+    {
+        FriendUI.SetActive(true);
+    }
 }

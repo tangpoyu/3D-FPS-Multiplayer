@@ -20,14 +20,17 @@ public class LoadingMenuController : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
+
         if (Laucher.instance.IsJoinedLobby)
         {
             TitleMenu.SetActive(true);
         }
+
         if (Laucher.instance.IsJoinedRoom || Laucher.instance.IsCreatedRoom)
         {
             RoomMenu.SetActive(true);
         }
+
         if (Laucher.instance.IsCreateRoomFailed)
         {
             ErrorMenu.SetActive(true);

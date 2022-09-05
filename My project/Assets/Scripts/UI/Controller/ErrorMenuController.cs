@@ -6,6 +6,7 @@ using UnityEngine;
 // controller
 public class ErrorMenuController : MonoBehaviour
 {
+    [SerializeField] GameObject TitleMenu;
     [SerializeField] TMP_Text errorText;
 
     // Start is called before the first frame update
@@ -25,5 +26,12 @@ public class ErrorMenuController : MonoBehaviour
         {
             this.gameObject.SetActive(false); // view [ ErrorMenu ] 
         }
+    }
+
+    public void Back()
+    {
+        Laucher.instance.IsJoinedLobby = true;
+        TitleMenu.SetActive(true);
+        this.gameObject.SetActive(false);
     }
 }
