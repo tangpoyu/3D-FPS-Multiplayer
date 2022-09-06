@@ -16,22 +16,22 @@ public class LoadingMenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Laucher.instance.IsLoad == false)
+        if(PhotonMasterServerConnector.instance.IsLoad == false)
         {
             this.gameObject.SetActive(false);
         }
 
-        if (Laucher.instance.IsJoinedLobby)
+        if (PhotonMasterServerConnector.instance.IsJoinedLobby)
         {
             TitleMenu.SetActive(true);
         }
 
-        if (Laucher.instance.IsJoinedRoom || Laucher.instance.IsCreatedRoom)
+        if (PhotonMasterServerConnector.instance.IsJoinedRoom || PhotonMasterServerConnector.instance.IsCreatedRoom)
         {
             RoomMenu.SetActive(true);
         }
 
-        if (Laucher.instance.IsCreateRoomFailed)
+        if (PhotonMasterServerConnector.instance.IsCreateRoomFailed)
         {
             ErrorMenu.SetActive(true);
         }

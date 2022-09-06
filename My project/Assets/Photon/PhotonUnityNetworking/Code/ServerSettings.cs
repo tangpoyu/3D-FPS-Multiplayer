@@ -96,5 +96,7 @@ namespace Photon.Pun
         {
             return "ServerSettings: " + this.AppSettings.ToStringFull();
         }
+
+        
     }
 }

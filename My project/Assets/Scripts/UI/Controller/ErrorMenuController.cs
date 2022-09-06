@@ -18,9 +18,9 @@ public class ErrorMenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Laucher.instance.IsCreateRoomFailed) // service [ Laucher ]
+        if (PhotonMasterServerConnector.instance.IsCreateRoomFailed) // service [ Laucher ]
         {
-            errorText.text = Laucher.instance.CreateRoomFailedMessage; // service [ Laucher ]
+            errorText.text = PhotonMasterServerConnector.instance.CreateRoomFailedMessage; // service [ Laucher ]
         }
         else
         {
@@ -30,7 +30,7 @@ public class ErrorMenuController : MonoBehaviour
 
     public void Back()
     {
-        Laucher.instance.IsJoinedLobby = true;
+        PhotonMasterServerConnector.instance.IsJoinedLobby = true;
         TitleMenu.SetActive(true);
         this.gameObject.SetActive(false);
     }

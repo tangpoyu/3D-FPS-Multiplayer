@@ -1,3 +1,4 @@
+using Photon.Pun;
 using PlayFab;
 using PlayFab.ClientModels;
 using System;
@@ -14,26 +15,20 @@ public class PlayFabFriend : MonoBehaviour
     private void Awake()
     {
         friends = new List<FriendInfo>();
+        PhotonMasterServerConnector.GetPhotonFriends += GetPlayfabFriends;
         AddFriend.OnAddFriend += HandleAddPlayfabFriend;
         UIFriendItem.OnRemoveFriend += HandleRemoveFriend;
     }
 
-    private void Start()
-    {
-        GetPlayfabFriends();
-    }
-
     private void OnDestroy()
     {
-     
+        PhotonMasterServerConnector.GetPhotonFriends -= GetPlayfabFriends;
         AddFriend.OnAddFriend -= HandleAddPlayfabFriend;
         UIFriendItem.OnRemoveFriend -= HandleRemoveFriend;
     }
 
-   
-
-    //////////////////////////////////////// handle add friend ////////////////////////////////////////
-    
+  
+    /////////////////////////////////////// handle add friend ////////////////////////////////////////
     private void HandleAddPlayfabFriend(string name)
     {
         var request = new AddFriendRequest { FriendTitleDisplayName = name };
@@ -58,8 +53,9 @@ public class PlayFabFriend : MonoBehaviour
         // all method which subscribe this action will receive this parameter [ obj.Friends ( List< PlayfabFriendInfo > ) ]
         OnFriendListUpdated?.Invoke(obj.Friends);
     }
-    //////////////////////////////////////// handle remove friend ////////////////////////////////////////
 
+
+    //////////////////////////////////////// handle remove friend ////////////////////////////////////////
     private void HandleRemoveFriend(string obj)
     {
         string id = friends.FirstOrDefault(f => f.TitleDisplayName == obj).FriendPlayFabId;
@@ -71,6 +67,7 @@ public class PlayFabFriend : MonoBehaviour
     {
         GetPlayfabFriends();
     }
+
 
     //////////////////////////////////////// Display error message ///////////////////////////////////////
     private void OnFailure(PlayFabError obj)

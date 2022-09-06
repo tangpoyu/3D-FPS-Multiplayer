@@ -4,6 +4,7 @@
 -a="D:\Unity Project\3D FPS Multiplayer - MVC\My project\Library\PlayerScriptAssemblies\UnityEngine.TestRunner.dll"
 -a="D:\Unity Project\3D FPS Multiplayer - MVC\My project\Library\PlayerScriptAssemblies\Unity.Timeline.dll"
 -a="D:\Unity Project\3D FPS Multiplayer - MVC\My project\Library\PlayerScriptAssemblies\Unity.TextMeshPro.dll"
+-a="D:\Unity Project\3D FPS Multiplayer - MVC\My project\Library\PlayerScriptAssemblies\PlayFab.dll"
 -a="D:\Unity Project\3D FPS Multiplayer - MVC\My project\Library\PlayerScriptAssemblies\Unity.Services.Core.Networking.dll"
 -a="D:\Unity Project\3D FPS Multiplayer - MVC\My project\Library\PlayerScriptAssemblies\PhotonRealtime.dll"
 -a="D:\Unity Project\3D FPS Multiplayer - MVC\My project\Library\PlayerScriptAssemblies\Unity.Services.Core.Internal.dll"

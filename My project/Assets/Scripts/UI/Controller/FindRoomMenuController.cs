@@ -19,32 +19,32 @@ public class FindRoomMenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Laucher.instance.IsRoomListUpdated)
+        if (PhotonMasterServerConnector.instance.IsRoomListUpdated)
         {
             foreach (Transform trans in roomListContent)
             {
                 Destroy(trans.gameObject);
             }
-            Dictionary<string, RoomInfo>.ValueCollection roomInfos = Laucher.instance.RoomName_RoomInfo.Values;
+            Dictionary<string, RoomInfo>.ValueCollection roomInfos = PhotonMasterServerConnector.instance.RoomName_RoomInfo.Values;
             foreach (RoomInfo roomInfo in roomInfos)
             {
                 GameObject obj = Instantiate(roomListPrefab, roomListContent);
                 obj.GetComponentInChildren<TMP_Text>().text = roomInfo.Name;
             }
-            Laucher.instance.IsRoomListUpdated = false;
+            PhotonMasterServerConnector.instance.IsRoomListUpdated = false;
         }
     }
 
     public void Back()
     {
-        Laucher.instance.IsJoinedLobby = true;
+        PhotonMasterServerConnector.instance.IsJoinedLobby = true;
         TitleMenu.SetActive(true);
         this.gameObject.SetActive(false);
     }
 
     public void enterRoom()
     {
-        Laucher.instance.JoinRoom(EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TMP_Text>().text); // service
+        PhotonMasterServerConnector.instance.JoinRoom(EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TMP_Text>().text); // service
         this.gameObject.SetActive(false);
         loadingMenu.SetActive(true); // view
     }

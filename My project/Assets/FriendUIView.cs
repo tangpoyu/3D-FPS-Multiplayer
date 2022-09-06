@@ -6,8 +6,9 @@ using PhotonFriendInfo = Photon.Realtime.FriendInfo;
 using Photon.Pun;
 using System;
 using System.Linq;
+using Photon.Chat;
 
-public class FriendUIView : MonoBehaviourPunCallbacks
+public class FriendUIView : MonoBehaviour
 {
     
     [SerializeField] private FriendUIController friendUIController;
@@ -15,33 +16,37 @@ public class FriendUIView : MonoBehaviourPunCallbacks
     private void Awake()
     {
         PlayFabFriend.OnFriendListUpdated += HandleFriendsUpdated;
+        PhotonChatConnector.OnChatConnected += HandleChatConnected;
+        PhotonChatConnector.OnStatusUpdated += HandleStatusUpdated;     
     }
 
     private void OnDestroy()
     {
         PlayFabFriend.OnFriendListUpdated -= HandleFriendsUpdated;
+        PhotonChatConnector.OnChatConnected -= HandleChatConnected;
+        PhotonChatConnector.OnStatusUpdated -= HandleStatusUpdated;
+      
     }
 
     private void HandleFriendsUpdated(List<PlayfabFriendInfo> friends)
     {
-        if(friends.Count != 0)
-        {
-            string[] friendDisplayNames = friends.Select(f => f.TitleDisplayName).ToArray();
-            PhotonNetwork.FindFriends(friendDisplayNames);
-        }
-        else
-        {
-            friendUIController.UpdateFriendsList(new List<PhotonFriendInfo>());
-        }
+        friendUIController.UpdateFriendsList(friends);
     }
 
-    public override void OnFriendListUpdate(List<PhotonFriendInfo> friendList)
-    { 
-        friendUIController.UpdateFriendsList(friendList);
+
+
+    private void HandleChatConnected(ChatClient obj)
+    {
+        friendUIController.setChatClient(obj);
+    }
+
+    private void HandleStatusUpdated(PhotonStatus obj)
+    {
+        friendUIController.HandleStatusUpdated(obj);
     }
 
     public void Exit()
     {
-        this.gameObject.SetActive(false);
+        friendUIController.Exit();
     }
 }

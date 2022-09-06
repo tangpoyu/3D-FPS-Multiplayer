@@ -11,7 +11,7 @@ public class CreateRoomMenuController : MonoBehaviour
 
     public void Create()
     {
-        Laucher.instance.CreateRoom(roomNameText.text);  // service [ Laucher ]
+        PhotonMasterServerConnector.instance.CreateRoom(roomNameText.text);  // service [ Laucher ]
         this.gameObject.SetActive(false);
         LoadingMenu.SetActive(true);
     }

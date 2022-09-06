@@ -8,7 +8,7 @@ using UnityEngine;
 public class RoomMenuController : MonoBehaviour
 {
     [SerializeField] TMP_Text roomName;
-    [SerializeField] GameObject LoadingMenu, playerListItem, StartButton;
+    [SerializeField] GameObject LoadingMenu, friendUI, playerListItem, StartButton;
     [SerializeField] Transform playerListContent;
 
     // Start is called before the first frame update
@@ -21,31 +21,31 @@ public class RoomMenuController : MonoBehaviour
     void Update()
     {
        
-        if (Laucher.instance.IsPlayerEnterRoomOrLeave)
+        if (PhotonMasterServerConnector.instance.IsPlayerEnterRoomOrLeave)
         {
             foreach(Transform trans in playerListContent)
             {
                 Destroy(trans.gameObject);
             }
 
-            foreach(Player player in Laucher.instance.Players)
+            foreach(Player player in PhotonMasterServerConnector.instance.Players)
             {
                 Instantiate(playerListItem, playerListContent).GetComponent<PlayerListItem>().SetUp(player);
             }
-            Laucher.instance.IsPlayerEnterRoomOrLeave = false;
+            PhotonMasterServerConnector.instance.IsPlayerEnterRoomOrLeave = false;
         }
 
-        if (Laucher.instance.IsCreatedRoom || Laucher.instance.IsJoinedRoom)
+        if (PhotonMasterServerConnector.instance.IsCreatedRoom || PhotonMasterServerConnector.instance.IsJoinedRoom)
         {
-            roomName.text = Laucher.instance.GetCurrentRoomName();  // service [ Laucher ]
+            roomName.text = PhotonMasterServerConnector.instance.GetCurrentRoomName();  // service [ Laucher ]
         }
            
-        if (Laucher.instance.IsCreatedRoom == false && Laucher.instance.IsJoinedRoom == false)
+        if (PhotonMasterServerConnector.instance.IsCreatedRoom == false && PhotonMasterServerConnector.instance.IsJoinedRoom == false)
         {
             this.gameObject.SetActive(false); // view [ RoomMenu ] 
         }
 
-        if (Laucher.instance.isMasterClient())
+        if (PhotonMasterServerConnector.instance.isMasterClient())
         {
             StartButton.SetActive(true);
         }
@@ -57,12 +57,17 @@ public class RoomMenuController : MonoBehaviour
 
     public void LeaveRoom()
     {
-        Laucher.instance.LeaveRoom(); // service [ Laucher ]
+        PhotonMasterServerConnector.instance.LeaveRoom(); // service [ Laucher ]
         LoadingMenu.SetActive(true);
     }
 
     public void StartGame()
     {
-        Laucher.instance.StartGame();
+        PhotonMasterServerConnector.instance.StartGame();
+    }
+
+    public void OpenFriendUI()
+    {
+        friendUI.SetActive(true);
     }
 }

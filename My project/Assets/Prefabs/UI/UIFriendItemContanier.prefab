@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.6156863}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -91,6 +91,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   friendNameText: {fileID: 5805730096442434386}
+  inviteButton: {fileID: 3593268521473261644}
+  statusImage: {fileID: 1256025113588024886}
+  onlineImage: {r: 0.9607843, g: 0.9411765, b: 0.5137255, a: 0.6156863}
+  offlineImage: {r: 0, g: 0, b: 0, a: 0.6156863}
 --- !u!1001 &344790227190399365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -98,6 +102,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4989862205709457797}
     m_Modifications:
+    - target: {fileID: 785674974, guid: fb43e2ca3423da5469061c07c7dc7316, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 785674974, guid: fb43e2ca3423da5469061c07c7dc7316, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 785674974, guid: fb43e2ca3423da5469061c07c7dc7316, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 785674974, guid: fb43e2ca3423da5469061c07c7dc7316, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 785674974, guid: fb43e2ca3423da5469061c07c7dc7316, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 785674976, guid: fb43e2ca3423da5469061c07c7dc7316, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5099630479314239399}
     - target: {fileID: 1863338539691598865, guid: fb43e2ca3423da5469061c07c7dc7316, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -223,16 +251,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3825009965109871049, guid: fb43e2ca3423da5469061c07c7dc7316, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3825009965109871049, guid: fb43e2ca3423da5469061c07c7dc7316, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5099630479314239399}
-    - target: {fileID: 3825009965109871049, guid: fb43e2ca3423da5469061c07c7dc7316, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: RemoveFriend
-      objectReference: {fileID: 0}
     - target: {fileID: 5074022120502100158, guid: fb43e2ca3423da5469061c07c7dc7316, type: 3}
       propertyPath: m_Name
       value: UIFriendItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806438647303786336, guid: fb43e2ca3423da5469061c07c7dc7316, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb43e2ca3423da5469061c07c7dc7316, type: 3}
@@ -241,6 +273,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2748845318860208939, guid: fb43e2ca3423da5469061c07c7dc7316, type: 3}
   m_PrefabInstance: {fileID: 344790227190399365}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3593268521473261644 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3825009965109871049, guid: fb43e2ca3423da5469061c07c7dc7316, type: 3}
+  m_PrefabInstance: {fileID: 344790227190399365}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5805730096442434386 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6078425878634373847, guid: fb43e2ca3423da5469061c07c7dc7316, type: 3}

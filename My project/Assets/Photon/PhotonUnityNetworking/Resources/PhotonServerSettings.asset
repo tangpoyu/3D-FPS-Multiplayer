@@ -15,15 +15,15 @@ MonoBehaviour:
   AppSettings:
     AppIdRealtime: 1c2c3c52-5f5b-4c82-b673-3de1c7da6d2e
     AppIdFusion: 
-    AppIdChat: 
+    AppIdChat: fb24cf5f-bd18-4c23-85e1-471ba78b5fcc
     AppIdVoice: 
-    AppVersion: 
+    AppVersion: 1.0
     UseNameServer: 1
     FixedRegion: 
     Server: 
     Port: 0
     ProxyServer: 
-    Protocol: 1
+    Protocol: 0
     EnableProtocolFallback: 1
     AuthMode: 0
     EnableLobbyStatistics: 0
