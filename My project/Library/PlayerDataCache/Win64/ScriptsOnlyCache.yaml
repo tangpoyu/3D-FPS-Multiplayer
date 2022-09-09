@@ -1,7 +1,6 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - AddFriend
     - AppView
     - Application
     - Billboard
@@ -49,6 +48,7 @@ ScriptsOnlyBuild:
     - TitleMenuController
     - UIFriendItem
     - UIInviteItem
+    - UIRequestMakeFriendItem
     - bulletImapctButtonModel
     - bulletImpactButtonController
     PhotonUnityNetworking.Demos.dll:
@@ -196,14 +196,23 @@ ScriptsOnlyBuild:
     fullTypeName: RoomListItem
     methodName: enterRoom
   - assembly: Assembly-CSharp
+    fullTypeName: UIFriendItem
+    methodName: RemoveFriend
+  - assembly: Assembly-CSharp
+    fullTypeName: UIRequestMakeFriendItem
+    methodName: DeclineMakeFriend
+  - assembly: Assembly-CSharp
+    fullTypeName: UIRequestMakeFriendItem
+    methodName: AcceptMakeFriend
+  - assembly: Assembly-CSharp
     fullTypeName: UIInviteItem
     methodName: DeclineInvite
   - assembly: Assembly-CSharp
     fullTypeName: UIInviteItem
     methodName: AcceptInvite
   - assembly: Assembly-CSharp
-    fullTypeName: UIFriendItem
-    methodName: RemoveFriend
+    fullTypeName: FriendUIView
+    methodName: ExitRequestUI
   - assembly: Assembly-CSharp
     fullTypeName: RoomMenuController
     methodName: LeaveRoom
@@ -214,8 +223,11 @@ ScriptsOnlyBuild:
     fullTypeName: FriendUIView
     methodName: Exit
   - assembly: Assembly-CSharp
-    fullTypeName: AddFriend
-    methodName: AddFriendName
+    fullTypeName: RoomMenuController
+    methodName: OpenFriendUI
+  - assembly: Assembly-CSharp
+    fullTypeName: FriendUIView
+    methodName: AddFriend
   - assembly: Assembly-CSharp
     fullTypeName: TitleMenuController
     methodName: createRoom
@@ -225,6 +237,12 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: CreateRoomMenuController
     methodName: Create
+  - assembly: Assembly-CSharp
+    fullTypeName: RoomMenuController
+    methodName: OpenPartyUI
+  - assembly: Assembly-CSharp
+    fullTypeName: FriendUIView
+    methodName: OpenRequestUI
   - assembly: Assembly-CSharp
     fullTypeName: TitleMenuController
     methodName: OpenPartyUI
@@ -240,9 +258,6 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: TitleMenuController
     methodName: findRoom
-  - assembly: Assembly-CSharp
-    fullTypeName: RoomMenuController
-    methodName: OpenFriendUI
   - assembly: Assembly-CSharp
     fullTypeName: TitleMenuController
     methodName: OpenFriendUI
@@ -278,7 +293,7 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1616}
+      Script: {instanceID: 1618}
     - Class: 114
       Script: {instanceID: 2190}
     - Class: 114
@@ -314,27 +329,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5936}
     - Class: 114
-      Script: {instanceID: 6074}
+      Script: {instanceID: 6076}
     - Class: 114
-      Script: {instanceID: 6614}
+      Script: {instanceID: 6616}
     - Class: 114
-      Script: {instanceID: 6776}
+      Script: {instanceID: 6778}
     - Class: 114
-      Script: {instanceID: 7160}
+      Script: {instanceID: 7162}
     - Class: 114
-      Script: {instanceID: 7260}
+      Script: {instanceID: 7262}
     - Class: 114
-      Script: {instanceID: 7666}
+      Script: {instanceID: 7668}
     - Class: 114
-      Script: {instanceID: 8428}
+      Script: {instanceID: 8430}
     - Class: 114
-      Script: {instanceID: 8570}
+      Script: {instanceID: 8572}
     - Class: 114
-      Script: {instanceID: 8856}
+      Script: {instanceID: 8858}
     - Class: 114
-      Script: {instanceID: 8864}
+      Script: {instanceID: 8866}
     - Class: 114
-      Script: {instanceID: 9118}
+      Script: {instanceID: 9120}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -403,7 +418,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1616}
     - Class: 114
-      Script: {instanceID: 1620}
+      Script: {instanceID: 1618}
     - Class: 114
       Script: {instanceID: 1638}
     - Class: 114
@@ -416,8 +431,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 1894}
     - Class: 114
       Script: {instanceID: 1904}
-    - Class: 114
-      Script: {instanceID: 2102}
     - Class: 114
       Script: {instanceID: 2160}
     - Class: 114
@@ -495,63 +508,65 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5922}
     - Class: 114
-      Script: {instanceID: 6140}
+      Script: {instanceID: 6016}
     - Class: 114
-      Script: {instanceID: 6340}
+      Script: {instanceID: 6142}
     - Class: 114
-      Script: {instanceID: 6392}
+      Script: {instanceID: 6342}
     - Class: 114
-      Script: {instanceID: 6464}
+      Script: {instanceID: 6394}
     - Class: 114
-      Script: {instanceID: 6614}
+      Script: {instanceID: 6466}
     - Class: 114
-      Script: {instanceID: 6776}
+      Script: {instanceID: 6616}
     - Class: 114
-      Script: {instanceID: 7010}
+      Script: {instanceID: 6778}
     - Class: 114
-      Script: {instanceID: 7138}
+      Script: {instanceID: 7012}
     - Class: 114
-      Script: {instanceID: 7160}
+      Script: {instanceID: 7140}
     - Class: 114
-      Script: {instanceID: 7172}
+      Script: {instanceID: 7162}
     - Class: 114
       Script: {instanceID: 7174}
     - Class: 114
-      Script: {instanceID: 7194}
+      Script: {instanceID: 7176}
     - Class: 114
-      Script: {instanceID: 7280}
+      Script: {instanceID: 7196}
     - Class: 114
-      Script: {instanceID: 7400}
+      Script: {instanceID: 7282}
     - Class: 114
-      Script: {instanceID: 7434}
+      Script: {instanceID: 7402}
     - Class: 114
-      Script: {instanceID: 7596}
+      Script: {instanceID: 7436}
     - Class: 114
-      Script: {instanceID: 7620}
+      Script: {instanceID: 7598}
     - Class: 114
-      Script: {instanceID: 7666}
+      Script: {instanceID: 7622}
     - Class: 114
-      Script: {instanceID: 7674}
+      Script: {instanceID: 7668}
     - Class: 114
-      Script: {instanceID: 7860}
+      Script: {instanceID: 7676}
     - Class: 114
-      Script: {instanceID: 8230}
+      Script: {instanceID: 7862}
     - Class: 114
-      Script: {instanceID: 8310}
+      Script: {instanceID: 8232}
     - Class: 114
-      Script: {instanceID: 8450}
+      Script: {instanceID: 8312}
     - Class: 114
-      Script: {instanceID: 8454}
+      Script: {instanceID: 8452}
     - Class: 114
-      Script: {instanceID: 8664}
+      Script: {instanceID: 8456}
     - Class: 114
-      Script: {instanceID: 8864}
+      Script: {instanceID: 8666}
     - Class: 114
-      Script: {instanceID: 8950}
+      Script: {instanceID: 8866}
     - Class: 114
-      Script: {instanceID: 9004}
+      Script: {instanceID: 8952}
     - Class: 114
-      Script: {instanceID: 9362}
+      Script: {instanceID: 9006}
+    - Class: 114
+      Script: {instanceID: 9364}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -585,6 +600,12 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
+      Hash: 0dbc3be398b4869a5c8d0d8481ee402c
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: LayoutElement
+  - hash:
+      serializedVersion: 2
       Hash: 699619b86d9359741a4f58540298c80b
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -607,12 +628,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Toggle
-  - hash:
-      serializedVersion: 2
-      Hash: 0dbc3be398b4869a5c8d0d8481ee402c
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: LayoutElement
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -745,12 +760,6 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
     className: CurrentRoomIsVisibleProperty
-  - hash:
-      serializedVersion: 2
-      Hash: 9e6e2b6b3aa70e0cfc4e6cdcde1cbfc4
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: AddFriend
   - hash:
       serializedVersion: 2
       Hash: c656dcc13ae391b68d594cc8f9c590b0
@@ -1593,7 +1602,7 @@ ScriptsOnlyBuild:
     className: ErrorMenuController
   - hash:
       serializedVersion: 2
-      Hash: d3bb93dbcaad5d6005d066fcd50aaaf1
+      Hash: 32243e083d2f88e74fdb21ba822c9c04
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RoomMenuController
@@ -1749,7 +1758,7 @@ ScriptsOnlyBuild:
     className: Line
   - hash:
       serializedVersion: 2
-      Hash: ce75c970f811fd84db63fdd84222b164
+      Hash: 08e4cddc9b3f0ad1b2f21ea051758639
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TitleMenuController
@@ -1837,6 +1846,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ItemInfo
+  - hash:
+      serializedVersion: 2
+      Hash: dfc0b4d057b9da593fecff6d7e0bb416
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UIRequestMakeFriendItem
   - hash:
       serializedVersion: 2
       Hash: 2163458cae41cb1735c8b06fc34a9582
@@ -2139,7 +2154,7 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: 93389b2fa0ad91ff924916c09d8d8cdd
+      Hash: 0b208fec4289f11c2ba70d35965d4311
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PartyUIModel
@@ -2415,7 +2430,7 @@ ScriptsOnlyBuild:
     className: LobbyMainPanel
   - hash:
       serializedVersion: 2
-      Hash: d7163caa0a1e300b7e5040da1a8414b5
+      Hash: e337eb9dfd8567950703130a900addff
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FriendUIModel

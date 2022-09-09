@@ -374,6 +374,7 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
+"Assets/ChatMessage.cs"
 "Assets/FriendUIController.cs"
 "Assets/FriendUIModel.cs"
 "Assets/FriendUIView.cs"
@@ -443,7 +444,6 @@
 "Assets/Scripts/Game/RoomManager.cs"
 "Assets/Scripts/Game/Spawnpoint.cs"
 "Assets/Scripts/Game/SpawnpointManager.cs"
-"Assets/Scripts/UI/AddFriend.cs"
 "Assets/Scripts/UI/Controller/CreateRoomMenuController.cs"
 "Assets/Scripts/UI/Controller/ErrorMenuController.cs"
 "Assets/Scripts/UI/Controller/FindRoomMenuController.cs"
@@ -457,6 +457,7 @@
 "Assets/Scripts/UI/View/RoomListItem.cs"
 "Assets/UIFriendItem.cs"
 "Assets/UIInviteItem.cs"
+"Assets/UIRequestMakeFriendItem.cs"
 -langversion:9.0
 
 /deterministic

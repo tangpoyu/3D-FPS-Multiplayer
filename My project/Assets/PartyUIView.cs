@@ -40,6 +40,6 @@ public class PartyUIView : MonoBehaviour
 
     public void Exit()
     {
-        this.gameObject.SetActive(false);
+        partyUIController.Exit();
     }
 }

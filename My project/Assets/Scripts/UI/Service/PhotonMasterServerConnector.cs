@@ -1,3 +1,4 @@
+using Photon.Chat;
 using Photon.Pun;
 using Photon.Realtime;
 using System;
@@ -5,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using AuthenticationValues = Photon.Realtime.AuthenticationValues;
 
 
 // service
@@ -13,9 +15,9 @@ public class PhotonMasterServerConnector : MonoBehaviourPunCallbacks
     public static Action GetPhotonFriends = delegate { };
 
     public static PhotonMasterServerConnector instance;
-    private bool isLoad, isInLogin, isJoinedLobby, isCreatedRoom, isJoinedRoom, isCreateRoomFailed, isRoomListUpdated, isPlayerEnterRoomOrLeave;
+    private bool isLoad, isInLogin, isJoinedLobby, isCreatedRoom, isJoinedRoom, isCreateRoomFailed, isRoomListUpdated, isPlayerEnterRoomOrLeave
+        , isInvite, isDirectJoinRoom;
     private string createRoomFailedMessage;
-    
     private Dictionary<string, RoomInfo> roomName_RoomInfo;
     private List<Player> players;
 
@@ -30,12 +32,14 @@ public class PhotonMasterServerConnector : MonoBehaviourPunCallbacks
     public Dictionary<string, RoomInfo> RoomName_RoomInfo { get => roomName_RoomInfo; set => roomName_RoomInfo = value; }
     public List<Player> Players { get => players; set => players = value; }
     public bool IsPlayerEnterRoomOrLeave { get => isPlayerEnterRoomOrLeave; set => isPlayerEnterRoomOrLeave = value; }
- 
- 
+    public bool IsInvite { get => isInvite; set => isInvite = value; }
+    public bool IsDirectJoinRoom { get => isDirectJoinRoom; set => isDirectJoinRoom = value; }
+
     private void Awake()
     {
-        PlayfabConnector.playFabLogin += Connect;
+        PhotonChatConnector.OnChatConnected += ConnectToPhotonMasterServer;
         UIInviteItem.OnAcceptInvite += HandleRoomIviteAccept;
+
         PhotonNetwork.NetworkingClient.LoadBalancingPeer.DisconnectTimeout = 65535;
         if (instance == null)
         {
@@ -47,31 +51,14 @@ public class PhotonMasterServerConnector : MonoBehaviourPunCallbacks
 
     private void OnDestroy()
     {
-        PlayfabConnector.playFabLogin -= Connect;
+        PhotonChatConnector.OnChatConnected -= ConnectToPhotonMasterServer;
         UIInviteItem.OnAcceptInvite -= HandleRoomIviteAccept;
     }
 
-    ////////////////////// [ handle room invite ] ////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    private void HandleRoomIviteAccept(UIInviteItem obj)
-    {
-        PlayerPrefs.SetString("PHOTONROOM", obj.RoomName);
-        JoinRoom(obj.RoomName);
-        //if (PhotonNetwork.InRoom)
-        //{
-        //    PhotonNetwork.LeaveRoom();
-        //}
-        //else
-        //{
-        //    if (PhotonNetwork.InLobby)
-        //    {
-        //        JoinRoom(obj.RoomName);
-        //    }
-        //}
-    }
+    
 
     /////////////////// [ To connect to photon master server ] ///////////////////////////////////////////////////////////////////////////////////////////
-    public void Connect()
+    public void ConnectToPhotonMasterServer(ChatClient chatClient)
     {
         string nickname = PlayerPrefs.GetString("USERNAME");
         Debug.Log($"To conntect to Phton server as {nickname} player.");
@@ -92,13 +79,16 @@ public class PhotonMasterServerConnector : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
+        if (IsInvite)
+        {
+            DirectJoinRoom(PlayerPrefs.GetString("PHOTONROOM"));
+            IsInvite = false;
+            return;
+        }
         Debug.Log("Joined the lobby successfully.");
         GetPhotonFriends?.Invoke();
-        
         isInLogin = false;
         isJoinedLobby = true;
-        // all method which subscribe this action will be executed with no parameter.
- 
         RoomName_RoomInfo.Clear();
         players = new List<Player>();
         foreach(Player player in PhotonNetwork.PlayerList)
@@ -106,11 +96,16 @@ public class PhotonMasterServerConnector : MonoBehaviourPunCallbacks
             players.Add(player);
         }
         // IsLoad = false;
+    }
 
+    private void DirectJoinRoom(string roomName)
+    {
+        isDirectJoinRoom = true;
+        PhotonNetwork.JoinRoom(roomName);
     }
 
     /////////////////// [ To create a room in photon master server ] ///////////////////////////////////////////////////////////////////////////////
-    
+
     public void CreateRoom(string roomName)
     {
 
@@ -143,23 +138,40 @@ public class PhotonMasterServerConnector : MonoBehaviourPunCallbacks
 
 
     /////////////////// [ To join a room in photon master server ] ///////////////////////////////////////////////////////////////////////////////
+
+    // ------ [ handle room invite ] -------------
+    // While this method is subscribing some action,  which is called whether this component is active or not when the action is invoked.
+    private void HandleRoomIviteAccept(UIInviteItem obj)
+    {
+        PlayerPrefs.SetString("PHOTONROOM", obj.RoomName);
+        if (PhotonNetwork.InLobby) DirectJoinRoom(obj.RoomName);
+        // UNDONE : Make player can accept room invite when in the room.
+        else if (PhotonNetwork.InRoom)
+        {
+            if (PhotonNetwork.CurrentRoom.Name == obj.RoomName) return;
+            LeaveRoom();
+            IsInvite = true;
+        }
+    }
+
     public void JoinRoom(string roomName)
     {
         Debug.Log("To join room.");
         PhotonNetwork.JoinRoom(roomName);
-        isLoad = true;
+        Debug.Log("set isload is true");
+        IsLoad = true;
     }
 
     public override void OnJoinedRoom()
     {
         Debug.Log("Joined the Room successfully.");
-        isPlayerEnterRoomOrLeave = true;
         players.Clear();
         foreach(Player player in PhotonNetwork.PlayerList)
         {
             players.Add(player);
         }
         IsLoad = false;
+        isPlayerEnterRoomOrLeave = true;
         IsJoinedRoom = true;
     }
 

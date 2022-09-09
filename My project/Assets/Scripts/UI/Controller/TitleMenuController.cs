@@ -6,7 +6,7 @@ using UnityEngine.UI;
 // controller
 public class TitleMenuController : MonoBehaviour
 {
-    [SerializeField] GameObject findRoomMenu,  creatRoomMenu, FriendUI, PartyUI, Image; // view [ createRoomMenu , findRoomMenu ]
+    [SerializeField] GameObject loadingMenu, findRoomMenu,  creatRoomMenu, FriendUI, PartyUI, Image; // view [ createRoomMenu , findRoomMenu ]
     [SerializeField] Button friendUIButton, partyUIButton;
 
     private void Awake()
@@ -31,6 +31,14 @@ public class TitleMenuController : MonoBehaviour
             Image.gameObject.SetActive(false);
             friendUIButton.interactable = true;
             partyUIButton.interactable = true;
+        }
+
+        if (PhotonMasterServerConnector.instance.IsDirectJoinRoom)
+        {
+            PhotonMasterServerConnector.instance.IsJoinedLobby = false;
+            PhotonMasterServerConnector.instance.IsLoad = true;
+            loadingMenu.SetActive(true);
+            PhotonMasterServerConnector.instance.IsDirectJoinRoom = false;
         }
     }
 

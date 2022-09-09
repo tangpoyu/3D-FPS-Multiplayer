@@ -5,9 +5,10 @@ using System;
 using TMPro;
 using UnityEngine;
 
+// service
 public class PlayfabConnector : MonoBehaviour
 {
-   public static Action playFabLogin = delegate { };
+   public static Action playFabConnected = delegate { };
 
    private string username;
    [SerializeField] TMP_InputField usernameInputfield;
@@ -70,7 +71,7 @@ public class PlayfabConnector : MonoBehaviour
     private void OnDisplayNameSuccess(UpdateUserTitleDisplayNameResult obj)
     {
         Debug.Log("Updated the displayname of the playfab");
-        playFabLogin?.Invoke();
+        playFabConnected?.Invoke();
     }
 
    

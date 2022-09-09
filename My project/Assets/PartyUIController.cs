@@ -7,10 +7,14 @@ public class PartyUIController : MonoBehaviour
 {
     [SerializeField] private PartyUIModel partyUIModel;
 
-    internal void updatePartyUI(string sender, string message)
+    internal void updatePartyUI(string sender, string roomName)
     {
         UIInviteItem uIInviteItem = Instantiate(partyUIModel.UIInviteItem, partyUIModel.InviteItemContanier);
-        uIInviteItem.Initialize(sender, message);
+        uIInviteItem.Initialize(sender, roomName);
+        foreach(GameObject image in partyUIModel.HaveInviteImage)
+        {
+            image.SetActive(true);
+        }
         partyUIModel.Invites.Add(uIInviteItem);
     }
 
@@ -20,6 +24,13 @@ public class PartyUIController : MonoBehaviour
         {
             partyUIModel.Invites.Remove(invite);
             Destroy(invite.gameObject);
+            //  Debug.Log("open the loding menu");
+            //  partyUIModel.LodingMenu.SetActive(true);
+            foreach (GameObject image in partyUIModel.HaveInviteImage)
+            {
+                image.SetActive(false);
+            }
+            partyUIModel.PartyUI.SetActive(false);
         }
     }
 
@@ -29,6 +40,15 @@ public class PartyUIController : MonoBehaviour
         {
             partyUIModel.Invites.Remove(invite);
             Destroy(invite.gameObject);
+        }
+    }
+
+    internal void Exit()
+    {
+        partyUIModel.PartyUI.SetActive(false);
+        foreach (GameObject image in partyUIModel.HaveInviteImage)
+        {
+            image.SetActive(false);
         }
     }
 }

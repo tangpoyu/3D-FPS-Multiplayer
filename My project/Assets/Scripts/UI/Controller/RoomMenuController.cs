@@ -8,19 +8,20 @@ using UnityEngine;
 public class RoomMenuController : MonoBehaviour
 {
     [SerializeField] TMP_Text roomName;
-    [SerializeField] GameObject LoadingMenu, friendUI, playerListItem, StartButton;
+    [SerializeField] GameObject LoadingMenu, friendUI, partyUI, playerListItem, StartButton;
     [SerializeField] Transform playerListContent;
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        roomName.text = PhotonMasterServerConnector.instance.GetCurrentRoomName();  // service [ Laucher ]
+
         if (PhotonMasterServerConnector.instance.IsPlayerEnterRoomOrLeave)
         {
             foreach(Transform trans in playerListContent)
@@ -34,15 +35,12 @@ public class RoomMenuController : MonoBehaviour
             }
             PhotonMasterServerConnector.instance.IsPlayerEnterRoomOrLeave = false;
         }
-
-        if (PhotonMasterServerConnector.instance.IsCreatedRoom || PhotonMasterServerConnector.instance.IsJoinedRoom)
-        {
-            roomName.text = PhotonMasterServerConnector.instance.GetCurrentRoomName();  // service [ Laucher ]
-        }
            
         if (PhotonMasterServerConnector.instance.IsCreatedRoom == false && PhotonMasterServerConnector.instance.IsJoinedRoom == false)
         {
             this.gameObject.SetActive(false); // view [ RoomMenu ] 
+            if (PhotonMasterServerConnector.instance.IsLoad)
+                LoadingMenu.SetActive(true);
         }
 
         if (PhotonMasterServerConnector.instance.isMasterClient())
@@ -58,7 +56,7 @@ public class RoomMenuController : MonoBehaviour
     public void LeaveRoom()
     {
         PhotonMasterServerConnector.instance.LeaveRoom(); // service [ Laucher ]
-        LoadingMenu.SetActive(true);
+        // LoadingMenu.SetActive(true);
     }
 
     public void StartGame()
@@ -69,5 +67,10 @@ public class RoomMenuController : MonoBehaviour
     public void OpenFriendUI()
     {
         friendUI.SetActive(true);
+    }
+
+    public void OpenPartyUI()
+    {
+        partyUI.SetActive(true);
     }
 }

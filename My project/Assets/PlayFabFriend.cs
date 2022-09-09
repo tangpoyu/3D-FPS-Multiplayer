@@ -16,24 +16,38 @@ public class PlayFabFriend : MonoBehaviour
     {
         friends = new List<FriendInfo>();
         PhotonMasterServerConnector.GetPhotonFriends += GetPlayfabFriends;
-        AddFriend.OnAddFriend += HandleAddPlayfabFriend;
+        UIRequestMakeFriendItem.OnAcceptInvite += HandleAddPlayfabFriend;
+        //       FriendUIController.OnAddFriend += HandleAddPlayfabFriend;
         UIFriendItem.OnRemoveFriend += HandleRemoveFriend;
+        PhotonChatConnector.OnAddPlayFabFriend += HandleAddPlayfabFriend;
+        PhotonChatConnector.OnRemoveFriend += HandleRemoveFriend;
     }
 
     private void OnDestroy()
     {
         PhotonMasterServerConnector.GetPhotonFriends -= GetPlayfabFriends;
-        AddFriend.OnAddFriend -= HandleAddPlayfabFriend;
+        UIRequestMakeFriendItem.OnAcceptInvite -= HandleAddPlayfabFriend;
+        //        FriendUIController.OnAddFriend -= HandleAddPlayfabFriend;
         UIFriendItem.OnRemoveFriend -= HandleRemoveFriend;
+        PhotonChatConnector.OnAddPlayFabFriend -= HandleAddPlayfabFriend;
+        PhotonChatConnector.OnRemoveFriend -= HandleRemoveFriend;
     }
 
   
     /////////////////////////////////////// handle add friend ////////////////////////////////////////
+    
+    
+
+    private void HandleAddPlayfabFriend(UIRequestMakeFriendItem uIRequestMakeFriendItem)
+    {
+        var request = new AddFriendRequest { FriendTitleDisplayName = uIRequestMakeFriendItem.SenderName };
+        PlayFabClientAPI.AddFriend(request, OnFriendAddedSuccess, OnFailure);
+    }
+
     private void HandleAddPlayfabFriend(string name)
     {
         var request = new AddFriendRequest { FriendTitleDisplayName = name };
         PlayFabClientAPI.AddFriend(request, OnFriendAddedSuccess, OnFailure);
-
     }
 
     private void OnFriendAddedSuccess(AddFriendResult obj)
@@ -55,10 +69,12 @@ public class PlayFabFriend : MonoBehaviour
     }
 
 
-    //////////////////////////////////////// handle remove friend ////////////////////////////////////////
+    //////////////////////////////////////// handle remove friend ///////////////////////////////////////
+
     private void HandleRemoveFriend(string obj)
     {
         string id = friends.FirstOrDefault(f => f.TitleDisplayName == obj).FriendPlayFabId;
+      //  friends.Remove(friends.FirstOrDefault(f => f.FriendPlayFabId == id));
         var request = new RemoveFriendRequest { FriendPlayFabId = id };
         PlayFabClientAPI.RemoveFriend(request, OnFriendRemoveSuccess, OnFailure);
     }

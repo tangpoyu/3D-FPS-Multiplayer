@@ -18,33 +18,49 @@ public class UIFriendItem : MonoBehaviour
     [SerializeField] private Image statusImage;
     [SerializeField] private Color onlineImage;
     [SerializeField] private Color offlineImage;
+    private bool isOnline;
+
+    // which is called only once when the fist time which is from inactive to active.
+    private void Awake()
+    {
+        
+    }
+
+    // which is called when which is destroyed not inactive.
+    private void OnDestroy()
+    {
+        
+    }
+
+    // which is called when this monobehavior ( component ) is active in hirerarchy. ( inactive not )
+    private void Update()
+    {
+        if (PhotonNetwork.InRoom && isOnline)
+        {
+            inviteButton.interactable = true;
+        }
+        else
+        {
+            inviteButton.interactable = false;
+        }
+    }
 
     public void SetStatus(int status)
     {
+
+        // UNDONE : change color to playingImage when status is playing.
         if(status == ChatUserStatus.Online)
         {
             Debug.Log(friendNameText.text + " sets online color");
-            inviteButton.interactable = true;
+            isOnline = true;
             statusImage.color = onlineImage;
         }
         else
         {
             Debug.Log(friendNameText.text + " sets offline color");
-            inviteButton.interactable = false;
+            isOnline = false;
             statusImage.color = offlineImage;
         }
-    }
-
-    private void Update()
-    {
-        //if (PhotonNetwork.InRoom)
-        //{
-        //    inviteButton.interactable = true;
-        //}
-        //else
-        //{
-        //    inviteButton.interactable = false;
-        //}
     }
 
     public void Initialize(string friendName)

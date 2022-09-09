@@ -10,7 +10,7 @@ public class LoadingMenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        Debug.Log("loadingMenu start update");
     }
 
     // Update is called once per frame
@@ -25,6 +25,7 @@ public class LoadingMenuController : MonoBehaviour
         {
             TitleMenu.SetActive(true);
         }
+        
 
         if (PhotonMasterServerConnector.instance.IsJoinedRoom || PhotonMasterServerConnector.instance.IsCreatedRoom)
         {
