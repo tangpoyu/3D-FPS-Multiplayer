@@ -32,6 +32,7 @@ ScriptsOnlyBuild:
     - PlayerName
     - PlayerView
     - PlayfabConnector
+    - PlayfabGameIntialData
     - PrefabManager
     - RoomListItem
     - RoomManager
@@ -350,6 +351,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 8866}
     - Class: 114
       Script: {instanceID: 9120}
+    - Class: 114
+      Script: {instanceID: 9294}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -566,7 +569,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9006}
     - Class: 114
-      Script: {instanceID: 9364}
+      Script: {instanceID: 9366}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -2710,6 +2713,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: e596e1b956719c36abe9807dfb6e1c46
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayfabGameIntialData
   - hash:
       serializedVersion: 2
       Hash: cba6cca6bb3290c4c00d709cf63843db

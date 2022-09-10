@@ -140,6 +140,7 @@
     <Compile Include="Assets\Scripts\UI\Service\PhotonMasterServerConnector.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\Application.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
+    <Compile Include="Assets\PlayfabGameIntialData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

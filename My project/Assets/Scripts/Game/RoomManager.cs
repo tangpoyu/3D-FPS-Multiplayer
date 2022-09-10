@@ -9,24 +9,31 @@ using UnityEngine.SceneManagement;
 // View
 public class RoomManager : MonoBehaviourPunCallbacks
 {
-    public override void OnEnable()
+    private void Awake()
     {
-        base.OnEnable();
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        GameObject playerManager = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerManager"), Vector3.zero, Quaternion.identity);
+        playerManager.name = "myPlayerManager";
+        playerManager.transform.SetParent(this.transform);
     }
 
-    public override void OnDisable()
-    {
-        base.OnDisable();
-    }
+    //public override void OnEnable()
+    //{
+    //    base.OnEnable();
+    //    SceneManager.sceneLoaded += OnSceneLoaded;
+    //}
+
+    //public override void OnDisable()
+    //{
+    //    base.OnDisable();
+    //}
    
-    private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
-    {
-        if(arg0.name == "Game")
-        {
-            GameObject playerManager = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerManager"), Vector3.zero, Quaternion.identity);
-            playerManager.name = "myPlayerManager";
-            playerManager.transform.SetParent(this.transform);
-        }
-    }
+    //private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+    //{
+    //    if(arg0.name == "Game")
+    //    {
+    //        GameObject playerManager = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PlayerManager"), Vector3.zero, Quaternion.identity);
+    //        playerManager.name = "myPlayerManager";
+    //        playerManager.transform.SetParent(this.transform);
+    //    }
+    //}
 }

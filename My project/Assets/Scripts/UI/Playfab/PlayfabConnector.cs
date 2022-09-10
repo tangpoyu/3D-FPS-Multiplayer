@@ -2,6 +2,7 @@
 using PlayFab;
 using PlayFab.ClientModels;
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -59,8 +60,20 @@ public class PlayfabConnector : MonoBehaviour
     private void OnLoginCustomIdSuccess(LoginResult obj)
     {
         Debug.Log("Logged into Playfab");
+        //var request = new GetUserInventoryRequest{ };
+        // PlayFabClientAPI.GetUserInventory(request, OnGetUserInventorySuccess, OnFailure);
+       
         UpdateDisplayName(username);
     }
+
+    //string itemId;
+    //private void OnGetUserInventorySuccess(GetUserInventoryResult obj)
+    //{
+    //    itemId = obj.Inventory[0].ItemId;
+      
+    //}
+
+  
 
     public void UpdateDisplayName(string displayName)
     {
@@ -81,5 +94,6 @@ public class PlayfabConnector : MonoBehaviour
         hint.text = "Login Error: " + obj.GenerateErrorReport();
     }
 
+    
 
 }

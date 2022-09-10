@@ -345,6 +345,7 @@
 "Assets/PhotonChatConnector.cs"
 "Assets/PhotonStatus.cs"
 "Assets/PlayFabFriend.cs"
+"Assets/PlayfabGameIntialData.cs"
 "Assets/Scripts/Game/Billboard.cs"
 "Assets/Scripts/Game/CameraController.cs"
 "Assets/Scripts/Game/CameraTest.cs"

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,13 +27,12 @@ public class DecoratorUIModel : MonoBehaviour
     public Transform Colors { get => buttonSpawnPoint; set => buttonSpawnPoint = value; }
     public GameObject Button { get => button; set => button = value; }
 
-    private void Start()
+    private void Awake()
     {
         isOpen = false;
         canvasGroup.alpha = 0;
         canvasGroup.blocksRaycasts = false;
-
-        foreach (var x in playerController.PlayerModel.BulletImpactColor.Select((value, index) => new { value, index }))
+        foreach (var x in PlayfabGameIntialData.instance.BulletImpactColor.Select((value, index) => new { value, index }))
         {
             GameObject obj = Instantiate(button);
             obj.GetComponent<Image>().color = x.value;
@@ -40,4 +40,19 @@ public class DecoratorUIModel : MonoBehaviour
             obj.GetComponent<bulletImapctButtonModel>().DecoratorUI = decoratorUIController;
         }
     }
+
+    //private void Start()
+    //{
+    //    isOpen = false;
+    //    canvasGroup.alpha = 0;
+    //    canvasGroup.blocksRaycasts = false;
+
+    //    foreach (var x in playerController.PlayerModel.BulletImpactColor.Select((value, index) => new { value, index }))
+    //    {
+    //        GameObject obj = Instantiate(button);
+    //        obj.GetComponent<Image>().color = x.value;
+    //        obj.transform.SetParent(buttonSpawnPoint, false);
+    //        obj.GetComponent<bulletImapctButtonModel>().DecoratorUI = decoratorUIController;
+    //    }
+    //}
 }

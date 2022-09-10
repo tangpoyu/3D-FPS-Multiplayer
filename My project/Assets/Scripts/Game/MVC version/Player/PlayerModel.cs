@@ -1,5 +1,6 @@
 using Photon.Pun;
 using Photon.Realtime;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class PlayerModel : AppElement
 {
+
+
     [SerializeField]
     private PhotonView pv;
     [SerializeField]
@@ -82,20 +85,17 @@ public class PlayerModel : AppElement
 
     private void Awake()
     {
-     
+        
         if (Pv.IsMine)
         {
+           
             CurrentHealth = health;
             //playerController.EquipItem(0);
             bulletImpactColor = new List<Color>();
-            // TODO : access the color of bulletImpact which player owns in database instead of producing in this class./////
-            BulletImpactColor.Add(new Color(255 / 255f, 0, 91 / 255f, 99 / 255f));                                        //
-            BulletImpactColor.Add(new Color(255 / 255f, 100 / 255f, 0, 134 / 255f));                                     //
-            BulletImpactColor.Add(new Color(255 / 255f, 222 / 255f, 0, 132 / 255f));                                    //
-            BulletImpactColor.Add(new Color(161 / 255f, 4 / 255f, 255 / 255f, 107 / 255f));                            //
-            BulletImpactColor.Add(new Color(75 / 255f, 245 / 255f, 0, 128 / 255f));                                   //
-            BulletImpactColor.Add(new Color(0, 245 / 255f, 212 / 255f, 107 / 255f));                                 //
-            //////////////////////////////////////////////////////////////////////////////////////////////////////////
+            foreach (Color color in PlayfabGameIntialData.instance.BulletImpactColor)
+            {
+                BulletImpactColor.Add(color);
+            }
         }
         else
         {
@@ -105,6 +105,7 @@ public class PlayerModel : AppElement
             Destroy(healthBar);
             Destroy(decoratorUI);
         }
+
         foreach (Player player in PhotonNetwork.PlayerList)
         {
             if (player == Pv.Owner)
@@ -127,6 +128,7 @@ public class PlayerModel : AppElement
         }
         playerController.initialItem();
     }
+
 
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
     {

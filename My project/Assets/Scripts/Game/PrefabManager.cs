@@ -22,8 +22,8 @@ public class PrefabManager : MonoBehaviour
             color_bulletImpact = new Dictionary<Color, GameObject>();
             BulletImpact_color = new Dictionary<GameObject, Color>();
             instance = this;
-            colors.Add(new Color(255 / 255f, 0, 91 / 255f, 99 / 255f));
-            colors.Add(new Color(255 / 255f, 100 / 255f, 0, 134 / 255f));
+            colors.Add(new Color(1, 0, 0.3568628f, 0.3882353f)); // Pink Bullet Impact
+            colors.Add(new Color(1, 0.392f, 0, 0.525f)); // Orange Bullet Impact
             colors.Add(new Color(255 / 255f, 222 / 255f, 0, 132 / 255f));
             colors.Add(new Color(161 / 255f, 4 / 255f, 255 / 255f, 107 / 255f));
             colors.Add(new Color(75 / 255f, 245 / 255f, 0, 128 / 255f));
