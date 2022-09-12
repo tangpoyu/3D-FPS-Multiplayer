@@ -42,7 +42,7 @@ public class PlayerModel : AppElement
     private SingleShotGunController[] singleShotGunController; // the weapons of player
     private int currentitemIndex, previousItemIndex = -1;
     private bool canShoot = true;
-    private List<Color> bulletImpactColor;
+    // private List<Color> bulletImpactColor;
 
     // Ghost Mode
     [SerializeField]
@@ -78,7 +78,7 @@ public class PlayerModel : AppElement
     public int CurrentitemIndex { get => currentitemIndex; set => currentitemIndex = value; }
     public int PreviousItemIndex { get => previousItemIndex; set => previousItemIndex = value; }
     public bool CanShoot { get => canShoot; set => canShoot = value; }
-    public List<Color> BulletImpactColor { get => bulletImpactColor; set => bulletImpactColor = value; }
+    // public List<Color> BulletImpactColor { get => bulletImpactColor; set => bulletImpactColor = value; }
 
     public Camera GhostModeCamera { get => ghostModeCamera; set => ghostModeCamera = value; }
    
@@ -91,11 +91,11 @@ public class PlayerModel : AppElement
            
             CurrentHealth = health;
             //playerController.EquipItem(0);
-            bulletImpactColor = new List<Color>();
-            foreach (Color color in PlayfabGameIntialData.instance.BulletImpactColor)
-            {
-                BulletImpactColor.Add(color);
-            }
+            //bulletImpactColor = new List<Color>();
+            //foreach (Color color in PlayfabGameIntialData.instance.BulletImpactColor)
+            //{
+            //    BulletImpactColor.Add(color);
+            //}
         }
         else
         {

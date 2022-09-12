@@ -32,7 +32,7 @@ public class DecoratorUIModel : MonoBehaviour
         isOpen = false;
         canvasGroup.alpha = 0;
         canvasGroup.blocksRaycasts = false;
-        foreach (var x in PlayfabGameIntialData.instance.BulletImpactColor.Select((value, index) => new { value, index }))
+        foreach (var x in PlayfabGameIntialData.instance.BulletImpactColorDefault.Select((value, index) => new { value, index }))
         {
             GameObject obj = Instantiate(button);
             obj.GetComponent<Image>().color = x.value;

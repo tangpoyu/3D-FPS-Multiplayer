@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+
 
 public class PrefabManager : MonoBehaviour
 {
@@ -18,16 +20,18 @@ public class PrefabManager : MonoBehaviour
     {
         if (instance == null)
         {
+            
             colors = new List<Color>();
             color_bulletImpact = new Dictionary<Color, GameObject>();
             BulletImpact_color = new Dictionary<GameObject, Color>();
             instance = this;
-            colors.Add(new Color(1, 0, 0.3568628f, 0.3882353f)); // Pink Bullet Impact
-            colors.Add(new Color(1, 0.392f, 0, 0.525f)); // Orange Bullet Impact
-            colors.Add(new Color(255 / 255f, 222 / 255f, 0, 132 / 255f));
-            colors.Add(new Color(161 / 255f, 4 / 255f, 255 / 255f, 107 / 255f));
-            colors.Add(new Color(75 / 255f, 245 / 255f, 0, 128 / 255f));
-            colors.Add(new Color(0, 245 / 255f, 212 / 255f, 107 / 255f));
+
+            colors.Add(HexToColor.GetColorFromString("D771E9E6")); // BulletImpact_PINK #D771E9E6
+            colors.Add(HexToColor.GetColorFromString("F56000")); // BulletImpact_ORANGE #F56000
+            colors.Add(HexToColor.GetColorFromString("F5D500")); // BulletImpact_YELLOW
+            colors.Add(HexToColor.GetColorFromString("9B04F5")); // BulletImpact_PURPLE
+            colors.Add(HexToColor.GetColorFromString("49F500")); //BulletImpact_GREEN
+            colors.Add(HexToColor.GetColorFromString("00F5D4")); //BulletImpact_BLUE
 
             foreach (var x in colors.Select((value, index) => new { value, index }))
             {
@@ -36,6 +40,8 @@ public class PrefabManager : MonoBehaviour
             }
         }
     }
+
+ 
 }
    
 

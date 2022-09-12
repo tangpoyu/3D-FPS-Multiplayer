@@ -58,12 +58,11 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Game\MVC version\Player\PlayerModel.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\Item\GunModel.cs" />
-    <Compile Include="Assets\Scripts\UI\Controller\FindRoomMenuController.cs" />
+    <Compile Include="Assets\Scripts\UI\FindRoomMenu\FindRoomMenuController.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\UI\DecoratorUI\bulletImpactButtonController.cs" />
-    <Compile Include="Assets\ChatMessage.cs" />
     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\SocketWebTcp.cs" />
-    <Compile Include="Assets\Scripts\UI\Playfab\PlayfabConnector.cs" />
-    <Compile Include="Assets\Scripts\UI\View\RoomListItem.cs" />
+    <Compile Include="Assets\Scripts\UI\Network\PlayfabConnector.cs" />
+    <Compile Include="Assets\Scripts\UI\FindRoomMenu\RoomListItem.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\UI\Scoreboard\ScoreboardModel.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\App\AppController.cs" />
     <Compile Include="Assets\Scripts\Game\Previous version\PlayerGoundCheck.cs" />
@@ -74,73 +73,79 @@
     <Compile Include="Assets\Scripts\Game\MVC version\App\AppModel.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\UI\Scoreboard\ScoreboardItem\ScoreboardItemController.cs" />
     <Compile Include="Assets\Scripts\Game\Previous version\ScoreboardItem.cs" />
-    <Compile Include="Assets\PartyUIController.cs" />
-    <Compile Include="Assets\Scripts\UI\View\PlayerListItem.cs" />
+    <Compile Include="Assets\Scripts\UI\PartyUI\PartyUIController.cs" />
+    <Compile Include="Assets\Scripts\UI\RoomMenu\PlayerListItem.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChannelSelector.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\BulletImpact.cs" />
     <Compile Include="Assets\Scripts\Game\SpawnpointManager.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\EventSystemSpawner.cs" />
     <Compile Include="Assets\Scripts\Game\PrefabManager.cs" />
-    <Compile Include="Assets\Scripts\UI\Service\PlayerName.cs" />
+    <Compile Include="Assets\Scripts\UI\ShopUI\ShopUIModel.cs" />
+    <Compile Include="Assets\Scripts\UI\TitleMenu\PlayerName.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\UI\Scoreboard\ScoreboardItem\ScoreboardItemModel.cs" />
-    <Compile Include="Assets\Scripts\UI\Controller\LoadingMenuController.cs" />
-    <Compile Include="Assets\UIFriendItem.cs" />
+    <Compile Include="Assets\Scripts\UI\LoadingMenu\LoadingMenuController.cs" />
+    <Compile Include="Assets\Scripts\UI\FriendUI\UIFriendItem.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\UI\Scoreboard\ScoreboardItem\ScoreboardItemView.cs" />
-    <Compile Include="Assets\UIInviteItem.cs" />
+    <Compile Include="Assets\Scripts\UI\PartyUI\UIInviteItem.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\UI\DecoratorUI\DecoratorUIView.cs" />
-    <Compile Include="Assets\FriendUIView.cs" />
+    <Compile Include="Assets\Scripts\HexToColor.cs" />
+    <Compile Include="Assets\Scripts\UI\FriendUI\FriendUIView.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\AppElement.cs" />
-    <Compile Include="Assets\Scripts\UI\Controller\ErrorMenuController.cs" />
-    <Compile Include="Assets\Scripts\UI\Controller\RoomMenuController.cs" />
+    <Compile Include="Assets\Scripts\UI\ErrorMenu\ErrorMenuController.cs" />
+    <Compile Include="Assets\Scripts\UI\RoomMenu\RoomMenuController.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\Item\GunController.cs" />
-    <Compile Include="Assets\FriendUIController.cs" />
+    <Compile Include="Assets\Scripts\UI\ShopUI\BuyErrorUI.cs" />
+    <Compile Include="Assets\Scripts\UI\FriendUI\FriendUIController.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\UI\DecoratorUI\bulletImapctButtonModel.cs" />
     <Compile Include="Assets\Scripts\Game\Previous version\Scoreboard.cs" />
     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\WebSocket.cs" />
-    <Compile Include="Assets\Scripts\UI\Controller\TitleMenuController.cs" />
+    <Compile Include="Assets\Scripts\UI\TitleMenu\TitleMenuController.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextButtonTransition.cs" />
-    <Compile Include="Assets\PhotonChatConnector.cs" />
+    <Compile Include="Assets\Scripts\UI\Network\PhotonChatConnector.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\Player\PlayerView.cs" />
     <Compile Include="Assets\Scripts\Game\Previous version\ItemInfo.cs" />
-    <Compile Include="Assets\UIRequestMakeFriendItem.cs" />
+    <Compile Include="Assets\Scripts\UI\FriendUI\UIRequestMakeFriendItem.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\UI\Scoreboard\ScoreBoardView.cs" />
     <Compile Include="Assets\Scripts\Game\Billboard.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\Item\ItemModel.cs" />
+    <Compile Include="Assets\Scripts\UI\ShopUI\ShopItem_VC.cs" />
     <Compile Include="Assets\Scripts\Game\CameraController.cs" />
     <Compile Include="Assets\Scripts\Game\CameraTest.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\NamePickGui.cs" />
     <Compile Include="Assets\Scripts\Game\Previous version\PlayerMoveController.cs" />
-    <Compile Include="Assets\PlayFabFriend.cs" />
+    <Compile Include="Assets\Scripts\UI\Network\PlayFabFriend.cs" />
     <Compile Include="Assets\Scripts\Game\Previous version\Gun.cs" />
     <Compile Include="Assets\Scripts\Game\Previous version\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\Game\IDamageable.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\Item\SingleShotGunController.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\UI\DecoratorUI\DecoratorUIModel.cs" />
     <Compile Include="Assets\Scripts\Game\RoomManager.cs" />
+    <Compile Include="Assets\Scripts\UI\ShopUI\ShopUIView.cs" />
     <Compile Include="Assets\Scripts\Game\PlayerManager.cs" />
-    <Compile Include="Assets\PartyUIModel.cs" />
+    <Compile Include="Assets\Scripts\UI\PartyUI\PartyUIModel.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\UI\HealthBarUI\HealthBarUIModel.cs" />
+    <Compile Include="Assets\Scripts\UI\ShopUI\ShopUIController.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\Player\PlayerController.cs" />
-    <Compile Include="Assets\PartyUIView.cs" />
+    <Compile Include="Assets\Scripts\UI\PartyUI\PartyUIView.cs" />
     <Compile Include="Assets\Scripts\Game\Previous version\SingleShotGun.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\UI\DecoratorUI\DecoratorUIController.cs" />
     <Compile Include="Assets\Scripts\Game\Previous version\WeaponController.cs" />
     <Compile Include="Assets\Scripts\Game\Previous version\GunInfo.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\FriendItem.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\UI\HealthBarUI\HealthBarUIController.cs" />
-    <Compile Include="Assets\FriendUIModel.cs" />
+    <Compile Include="Assets\Scripts\UI\FriendUI\FriendUIModel.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatGui.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\App\AppView.cs" />
-    <Compile Include="Assets\PhotonStatus.cs" />
-    <Compile Include="Assets\Scripts\UI\Controller\CreateRoomMenuController.cs" />
+    <Compile Include="Assets\Photon\PhotonStatus.cs" />
+    <Compile Include="Assets\Scripts\UI\CreateRoomMenu\CreateRoomMenuController.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\UI\Scoreboard\ScoreboardController.cs" />
     <Compile Include="Assets\Scripts\Game\Previous version\Item.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextToggleIsOnTransition.cs" />
-    <Compile Include="Assets\Scripts\UI\Service\PhotonMasterServerConnector.cs" />
+    <Compile Include="Assets\Scripts\UI\Network\PhotonMasterServerConnector.cs" />
     <Compile Include="Assets\Scripts\Game\MVC version\Application.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
-    <Compile Include="Assets\PlayfabGameIntialData.cs" />
+    <Compile Include="Assets\Scripts\Game\MVC version\Network\PlayfabGameIntialData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -151,7 +156,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\Photon\PhotonLibs\WebSocket\websocket-sharp.dll" />
-    <None Include="Assets\photon-chat-readme.txt" />
+    <None Include="Assets\Photon\photon-chat-readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
@@ -834,6 +839,9 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
